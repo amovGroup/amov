@@ -111,7 +111,7 @@
   }
   
 .photo {
-    width: 68vw;
+    width: calc(100% - 32vw);
     height: 31vw;
     margin: 5vw 16vw;
   }
