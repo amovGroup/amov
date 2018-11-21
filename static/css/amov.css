@@ -1,5 +1,5 @@
 .max-width {
-  width: 100vw;
+  width: 100%;
 }
 
 .hardware, .software {
@@ -18,13 +18,13 @@
 }
 
 .bk-top, .bk-bottom {
-  width: 100vw;
+  width: 100%;
   height: 21vw;
 }
 
 .bk-top {
   background: url('/images/top.jpg') no-repeat;
-  background-size: 100vw 21vw;
+  background-size: 100% 21vw;
 }
 .about-card {
   position: absolute;
@@ -35,11 +35,11 @@
 
 .bk-bottom {
   background: url('/images/bottom.jpg') no-repeat;
-  background-size: 100vw 21vw;
+  background-size: 100% 21vw;
 }
 
 .container {
-  width: 100vw;
+  width: 100%;
   min-height: calc(100vh - 26vw);
   display: flex;
   justify-content: center;
@@ -57,7 +57,7 @@
 }
 
 .carousel {
-  width: 100vw;
+  width: 100%;
   height: 42vw;
 }
 
@@ -178,7 +178,7 @@ html {
 }
 
 .header, .footer {
-  width: 100vw;
+  width: 100%;
   background-color: #0a122b;
 }
 
