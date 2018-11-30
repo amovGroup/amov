@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <el-menu
-  :default-active="activeIndex2"
+  :default-active="activeIndex"
   class="nav-menu"
   mode="horizontal"
   @select="handleSelect"
@@ -58,7 +58,6 @@ export default {
       data() {
       return {
         activeIndex: '1',
-        activeIndex2: '1'
       };
     },
     methods: {

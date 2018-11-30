@@ -2,7 +2,7 @@
   <section class="container">
     <div class="max-width">
       <div class="sowing-map">
-        <el-carousel :interval="5000" arrow="always">
+        <el-carousel :interval="5000" arrow="always" class="banner">
           <el-carousel-item v-for="item in pics" :key="item">
             <img v-bind:src="item" alt="dd" class="carousel">
           </el-carousel-item>

@@ -1,15 +1,22 @@
 .max-width {
   width: 100%;
+  background-color:#fff;
 }
 
 .hardware, .software {
   height: 42vw;
-  margin: 5vw 16vw;
 }
 
 .other-hardware, .product{
   height: 47vw;
+}
+
+.other-hardware, .product, .hardware, .software, .photo, .course-card, .course-teacher {
   margin: 5vw 16vw;
+}
+
+.course-list {
+  margin: 0vw 16vw;
 }
 
 .aboutus {
@@ -20,6 +27,21 @@
 .bk-top, .bk-bottom {
   width: 100%;
   height: 21vw;
+}
+
+.course-tutor {
+  background: url('/images/tutor.jpg') no-repeat;
+  background-size: 100% 33vw;
+  width: 100%;
+  height: 33vw;
+  position: relative;
+}
+
+.course-teacher {
+  position: absolute;
+  width: calc(100% - 32vw);
+  height: 28vw;
+
 }
 
 .bk-top {
@@ -107,13 +129,14 @@
   }
   
 .el-carousel__container {
-    height: 42vw;
+    height: 100%;
   }
   
-.photo {
+.photo, .course-card {
     width: calc(100% - 32vw);
-    height: 31vw;
-    margin: 5vw 16vw;
+    min-height: 31vw;
+    max-width: 1300px;
+    max-height: 600px;
   }
 
 .el-carousel__item:nth-child(2n) {
@@ -122,6 +145,10 @@
   
 .el-carousel__item:nth-child(2n+1) {
     background-color: #d3dce6;
+}
+
+.banner {
+  height: 42vw;
 }
 
 html {
