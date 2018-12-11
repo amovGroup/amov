@@ -1,17 +1,30 @@
 .max-width {
   width: 100%;
-  background-color:#fff;
+  background-color: #fff;
 }
 
-.hardware, .software {
+.hardware,
+.software {
   height: 42vw;
 }
 
-.other-hardware, .product{
+.other-hardware,
+.product {
   height: 47vw;
 }
 
-.other-hardware, .product, .hardware, .software, .photo, .course-card, .course-teacher {
+.other-hardware,
+.product,
+.hardware,
+.software,
+.photo,
+.course-card,
+.course-teacher,
+.product-platform,
+.product-video,
+.product-prop,
+.product-instruction,
+.product-feature {
   margin: 5vw 16vw;
 }
 
@@ -24,7 +37,8 @@
   position: relative;
 }
 
-.bk-top, .bk-bottom {
+.bk-top,
+.bk-bottom {
   width: 100%;
   height: 21vw;
 }
@@ -48,6 +62,7 @@
   background: url('/images/top.jpg') no-repeat;
   background-size: 100% 21vw;
 }
+
 .about-card {
   position: absolute;
   left: 10vw;
@@ -68,12 +83,12 @@
   align-items: center;
   text-align: center;
 }
-  
+
 .bottom {
   margin-top: 13px;
   line-height: 12px;
 }
-  
+
 .learn-more {
   width: 100%;
 }
@@ -84,10 +99,10 @@
 }
 
 .hr-line {
-    margin: 10px auto;
-    width: 5vw;
-    background-color: #5175ea;
-    border-radius: 3px;
+  margin: 10px auto;
+  width: 5vw;
+  background-color: #5175ea;
+  border-radius: 3px;
 }
 
 .sowing-map {
@@ -120,31 +135,32 @@
   padding-top: 15px;
 }
 
-  .el-carousel__item h3 {
-    color: #475669;
-    font-size: 18px;
-    opacity: 0.75;
-    line-height: 300px;
-    margin: 0;
-  }
-  
+.el-carousel__item h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
 .el-carousel__container {
-    height: 100%;
-  }
-  
-.photo, .course-card {
-    width: calc(100% - 32vw);
-    min-height: 31vw;
-    max-width: 1300px;
-    max-height: 600px;
-  }
+  height: 100%;
+}
+
+.photo,
+.course-card {
+  width: calc(100% - 32vw);
+  min-height: 31vw;
+  max-width: 1300px;
+  max-height: 600px;
+}
 
 .el-carousel__item:nth-child(2n) {
-    background-color: #99a9bf;
- }
-  
+  background-color: #99a9bf;
+}
+
 .el-carousel__item:nth-child(2n+1) {
-    background-color: #d3dce6;
+  background-color: #d3dce6;
 }
 
 .banner {
@@ -195,7 +211,7 @@ html {
 }
 
 .nav-menu-item {
-  position:relative;
+  position: relative;
   top: -1px;
 }
 
@@ -204,7 +220,8 @@ html {
   background-color: #35495e;
 }
 
-.header, .footer {
+.header,
+.footer {
   width: 100%;
   background-color: #0a122b;
 }
@@ -219,15 +236,18 @@ html {
   padding: 0vw 16vw;
 
 }
+
 .nav-menu {
   height: 4vw;
 }
-.el-menu--horizontal>.el-menu-item, .el-menu--horizontal>.el-submenu .el-submenu__title {
-  height: 4vw!important;
+
+.el-menu--horizontal>.el-menu-item,
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+  height: 4vw !important;
 }
 
 .el-menu.el-menu--horizontal {
-    border-bottom: solid 1px #8147d9 !important;
+  border-bottom: solid 1px #8147d9 !important;
 }
 
 .logo {
@@ -237,7 +257,7 @@ html {
 }
 
 .right-item {
-  float:right!important;
+  float: right !important;
 }
 
 .footer-margin {
@@ -255,6 +275,7 @@ html {
   height: 50%;
 }
 
-.router-nav, .foot-a {
+.router-nav,
+.foot-a {
   text-decoration: none;
 }

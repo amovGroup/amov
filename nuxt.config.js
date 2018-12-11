@@ -35,7 +35,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
 
   /*
@@ -50,8 +51,12 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
   },
 
+  proxy: {
+    '/api/': { target: 'http://api.example.com', pathRewrite: {'^/api/': ''} }
+  },
   /*
   ** Build configuration
   */

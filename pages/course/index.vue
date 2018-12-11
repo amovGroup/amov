@@ -26,7 +26,7 @@
                     </div>
                     <div class="bk2">
                         <el-carousel class="course-banner-carousel">
-                            <el-carousel-item v-for="item in 4" :key="item" style="height:100%;">
+                            <el-carousel-item v-for="item in 3" :key="item" style="height:100%;">
                                 <h3>{{ item }}</h3>
                             </el-carousel-item>
                         </el-carousel>
@@ -135,7 +135,7 @@ export default {
 }
 
 .course-img {
-    background-color: greenyellow;
+    background-color: #f0f0f0;
     border-radius: 20px;
     width: 100%;
     height: calc(50vw / 4);
