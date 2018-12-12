@@ -24,7 +24,8 @@
 .product-video,
 .product-prop,
 .product-instruction,
-.product-feature {
+.product-feature,
+.course-detail {
   margin: 5vw 16vw;
 }
 
@@ -105,8 +106,13 @@
   border-radius: 3px;
 }
 
-.sowing-map {
+.sowing-map, .course-board {
   height: 42vw;
+}
+
+.course-board {
+  background: blue no-repeat;
+  background-size: 100% 42vw;
 }
 
 .intro {
@@ -253,7 +259,7 @@ html {
 .logo {
   height: 3vw;
   position: relative;
-  bottom: 0.8vw;
+  bottom: 5px;
 }
 
 .right-item {
@@ -278,4 +284,122 @@ html {
 .router-nav,
 .foot-a {
   text-decoration: none;
+}
+
+.course-board {
+    padding-top:9vw;
+}
+
+.course-board-classify,
+.course-board-title,
+.course-board-subtitle,
+.course-board-hr,
+.course-board-option,
+.course-board-intro,
+.course-board-price,
+.course-board-purchase {
+    color:#fff;
+	font-family: MicrosoftYaHei;
+	font-weight: normal;
+	font-stretch: normal;
+}
+
+.course-board-classify {
+	font-size: 1.25vw;
+	letter-spacing: 0.06vw;
+}
+
+.course-board-title {
+    margin-top:1.35vw;
+	font-size: 1.88vw;
+	letter-spacing: 0.09vw;
+}
+
+.course-board-subtitle {
+    margin-top: 1vw;
+	font-size: 1.04vw;
+	letter-spacing: 0.05vw;
+	color: #e7e7e7;
+}
+
+.course-board-hr {
+    margin-top: 3vw;
+    margin-left: 30%;
+    width: 40%;
+	height: 1px;
+	background-color: #ffffff;
+	border-radius: 0.05vw;
+	opacity: 0.29;
+}
+
+.course-board-option {
+	font-size: 0.83vw;
+	letter-spacing: 0.04vw;
+    color: #e7e7e7;
+    margin: 1vw 40% 0 40%;
+}
+
+.course-board-intro {
+	font-size: 0.83vw;
+	letter-spacing: 0.04vw;
+    color: #e7e7e7;
+    margin: 2vw 34% 2vw 34%;
+}
+
+.course-board-price {
+    margin-top: 1.5vw;
+    margin-bottom: 2vw;
+    font-size: 1.56vw;
+	letter-spacing: 0.08vw;
+	color: #ee3617;
+}
+
+.course-board-btn {
+    width: 14vw;
+}
+
+.course-chapter {
+    width: 100%;
+}
+
+.course-period {
+    margin-top: 1vw;
+}
+
+.learn-title {
+    width: 5.68vw;
+	font-family: MicrosoftYaHei-Bold;
+	font-size: 0.83vw;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #333333;
+}
+
+.learn-point {
+	font-family: MicrosoftYaHei;
+	font-size: 0.83vw;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+    color: #333333;
+    text-align: center;
+}
+
+.period-title {
+	font-family: MicrosoftYaHei;
+	font-size: 0.83vw;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #333333;
+}
+
+.period-content {
+	font-family: MicrosoftYaHeiLight;
+	font-size: 0.73vw;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #333333;
 }
