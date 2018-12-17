@@ -29,6 +29,48 @@
   margin: 5vw 16vw;
 }
 
+.product-item {
+  position: relative;
+}
+
+.product-abstract {
+  position: absolute;
+  z-index: -1;
+}
+
+.product-abstract-hover {
+  position: absolute;
+  background-color: #0d297f;
+  z-index: 2018;
+}
+
+.product-card, .product-abstract {
+  height: 25vw;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.product-abstract-title {
+  margin-top: 5vw;
+  margin-bottom: 0.5vw;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.05vw;
+    color: #ffffff;
+}
+
+.product-abstract-content {
+  margin: 1.5vw;
+  font-family: MicrosoftYaHei;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #ffffff;
+}
+
 .course-list {
   margin: 0vw 16vw;
 }
@@ -90,6 +132,40 @@
   line-height: 12px;
 }
 
+.goods-btn {
+  position: absolute;
+  bottom: 0px;
+  margin-bottom:20px;
+  margin-left: 5%;
+}
+
+.goods-name {
+  font-family: MicrosoftYaHei;
+	font-size: 20px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.05vw;
+	color: #080f24;
+}
+
+.goods-title {
+  font-family: MicrosoftYaHeiLight;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #080f24;
+}
+
+.goods-content {
+  font-family: MicrosoftYaHeiLight;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0.04vw;
+	color: #080f24;
+}
+
 .learn-more {
   width: 100%;
 }
@@ -109,6 +185,7 @@
 .sowing-map, .course-board {
   height: 42vw;
 }
+
 
 .course-board {
   background: blue no-repeat;
@@ -159,6 +236,10 @@
   min-height: 31vw;
   max-width: 1300px;
   max-height: 600px;
+}
+
+.photo {
+  border-radius: 8px;
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -267,8 +348,8 @@ html {
 }
 
 .footer-margin {
-  margin: 2vw 0;
-  font-size: 9px;
+  margin: 1.2vw 0;
+  font-size: 14px;
 }
 
 .foot-a {
@@ -287,7 +368,7 @@ html {
 }
 
 .course-board {
-    padding-top:9vw;
+    padding-top:7vw;
 }
 
 .course-board-classify,
@@ -305,25 +386,25 @@ html {
 }
 
 .course-board-classify {
-	font-size: 1.25vw;
+	font-size: 24px;
 	letter-spacing: 0.06vw;
 }
 
 .course-board-title {
-    margin-top:1.35vw;
-	font-size: 1.88vw;
+  margin-top:1vw;
+	font-size: 36px;
 	letter-spacing: 0.09vw;
 }
 
 .course-board-subtitle {
-    margin-top: 1vw;
-	font-size: 1.04vw;
+    margin-top: 0.8vw;
+	font-size: 20px;
 	letter-spacing: 0.05vw;
 	color: #e7e7e7;
 }
 
 .course-board-hr {
-    margin-top: 3vw;
+    margin-top: 1vw;
     margin-left: 30%;
     width: 40%;
 	height: 1px;
@@ -333,21 +414,21 @@ html {
 }
 
 .course-board-option {
-	font-size: 0.83vw;
+	font-size: 14px;
 	letter-spacing: 0.04vw;
     color: #e7e7e7;
     margin: 1vw 40% 0 40%;
 }
 
 .course-board-intro {
-	font-size: 0.83vw;
+	font-size: 14px;
 	letter-spacing: 0.04vw;
     color: #e7e7e7;
-    margin: 2vw 34% 2vw 34%;
+    margin: 1vw 25% 1vw 25%;
 }
 
 .course-board-price {
-    margin-top: 1.5vw;
+    margin-top: 1vw;
     margin-bottom: 2vw;
     font-size: 1.56vw;
 	letter-spacing: 0.08vw;
@@ -369,7 +450,7 @@ html {
 .learn-title {
     width: 5.68vw;
 	font-family: MicrosoftYaHei-Bold;
-	font-size: 0.83vw;
+	font-size: 16px;
 	font-weight: normal;
 	font-stretch: normal;
 	letter-spacing: 0.04vw;
@@ -378,17 +459,17 @@ html {
 
 .learn-point {
 	font-family: MicrosoftYaHei;
-	font-size: 0.83vw;
+	font-size: 16px;
 	font-weight: normal;
 	font-stretch: normal;
 	letter-spacing: 0.04vw;
-    color: #333333;
-    text-align: center;
+  color: #333333;
+  text-align: center;
 }
 
 .period-title {
 	font-family: MicrosoftYaHei;
-	font-size: 0.83vw;
+	font-size: 16px;
 	font-weight: normal;
 	font-stretch: normal;
 	letter-spacing: 0.04vw;
@@ -397,7 +478,7 @@ html {
 
 .period-content {
 	font-family: MicrosoftYaHeiLight;
-	font-size: 0.73vw;
+	font-size: 14px;
 	font-weight: normal;
 	font-stretch: normal;
 	letter-spacing: 0.04vw;

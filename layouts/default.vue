@@ -26,25 +26,25 @@
     <div class="footer">
       <el-row :gutter="20">
         <el-col :span="6">
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">推荐课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">初级课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">中级课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">高级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">推荐课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">初级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">中级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">高级课程</nuxt-link></div>
         </el-col>
         <el-col :span="6">
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">新闻</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/news" class="foot-a">新闻</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/" class="foot-a">官方动态</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/" class="foot-a">线下培训</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/" class="foot-a">测试培训</nuxt-link></div>
         </el-col>
         <el-col :span="6">
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">论坛</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/forum" class="foot-a">论坛</nuxt-link></div>
         </el-col>
         <el-col :span="6">
           <div class="footer-margin">联系方式</div>
-          <div class="footer-margin">地址：<span>Lorem ipsum dolor sit.</span></div>
-          <div class="footer-margin">邮箱：<a href="mailto:example@example.com" class="foot-a">example@example.com</a></div>
+          <div class="footer-margin">地址：<span>成都市郫都区菁蓉镇</span></div>
+          <div class="footer-margin">邮箱：<a href="mailto:1202457854@qq.com" class="foot-a">1202457854@qq.com</a></div>
           <div class="footer-margin">电话：<a href="tel:12312312312" class="foot-a">123123123123</a></div>
           <div class="footer-margin">微信公众号 <img src="~/assets/home/qrcode.jpg" alt="" class="qrcode"></div>
         </el-col>

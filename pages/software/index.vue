@@ -1,13 +1,7 @@
 <template>
   <section class="container">
     <div class="max-width">
-      <div class="sowing-map">
-        <el-carousel :interval="5000" arrow="always" class="banner">
-          <el-carousel-item v-for="item in pics" :key="item">
-            <img v-bind:src="item" alt="dd" class="carousel">
-          </el-carousel-item>
-        </el-carousel>
-      </div>
+      <carousel-list :pics="pics" :index="2"></carousel-list>
       <div class="software">
         <h3>软件一览表</h3>
         <hr class="hr-line" size="10" />
@@ -88,14 +82,19 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import CarouselList from '~/components/CarouselList.vue'
 export default {
   components: {
-    Logo
+    Logo, CarouselList
+  },
+  async asyncData({ $axios }) {
+    const json = await $axios.$post('/api/carousel/list', {location: 0})
+    const image = await $axios.$get('/api/init/image')
+    return { pics: json.body, image_url: image }
   },
   data() {
     return {
-      pics: ['/_nuxt/assets/carousel/1.jpeg','/_nuxt/assets/carousel/2.jpeg','/_nuxt/assets/carousel/3.jpeg','/_nuxt/assets/carousel/4.jpeg']
+      pics: []
     }
   }
 }

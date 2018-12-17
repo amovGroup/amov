@@ -1,101 +1,16 @@
 <template>
   <section class="container">
     <div class="max-width">
-      <div class="sowing-map">
-        <el-carousel :interval="5000" arrow="always" class="banner">
-          <el-carousel-item v-for="item in pics" :key="item">
-            <img v-bind:src="item" alt="dd" class="carousel">
-          </el-carousel-item>
-        </el-carousel>
-      </div>
+      <carousel-list :pics="pics" :index="1"></carousel-list>
       <div class="hardware">
         <h3>硬件平台</h3>
         <hr class="hr-line" size="10" />
-        <div>
-          <el-row :gutter="20">
-            <el-col :span="8">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </div>
+        <product-list :productList="hardware"></product-list>
       </div>
       <div class="other-hardware">
-        <h3>其他硬件平台</h3>
+        <h3>周边硬件平台</h3>
         <hr class="hr-line" size="10" />
-        <div>
-          <el-row :gutter="20">
-            <el-col :span="8" style="margin-top:20px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top:20px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top:20px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top:20px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top:20px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡</span>
-                </div>
-              </el-card>
-            </el-col>
-          </el-row>
-        </div>
+        <product-list :productList="peripheral"></product-list>
       </div>
     </div>
   </section>
@@ -103,15 +18,32 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-
+import CarouselList from '~/components/CarouselList.vue'
+import ProductList from '~/components/ProductList.vue'
 export default {
   components: {
-    Logo
+    Logo, CarouselList, ProductList
+  },
+  async asyncData({ $axios }) {
+    const json = await $axios.$post('/api/carousel/list', {location: 0})
+    const hardware = await $axios.$get('/api/product/hardware/list')
+    const peripheral= await $axios.$get('/api/product/peripheral/list')
+    for (var i =0; i < hardware.body.length; i++) {
+      hardware.body[i].hover = false;
+    }
+    for (var i =0; i <peripheral.body.length; i++) {
+      peripheral.body[i].hover = false;
+    }
+    return { pics: json.body, hardware:hardware.body, peripheral:peripheral.body }
   },
   data() {
     return {
-      pics: ['/_nuxt/assets/carousel/1.jpeg','/_nuxt/assets/carousel/2.jpeg','/_nuxt/assets/carousel/3.jpeg','/_nuxt/assets/carousel/4.jpeg']
+      pics: [],
+      hardware: [],
+      peripheral: []
     }
+  },
+  computed: {
   }
 }
 </script>

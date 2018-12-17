@@ -1,12 +1,7 @@
 <template>
   <section class="container">
     <div class="max-width">
-      <div class="sowing-map">
-        <el-carousel :interval="5000" arrow="always" class="banner">
-          <el-carousel-item v-for="item in pics" :key="item">
-            <img v-bind:src="item" alt="dd" class="carousel">
-          </el-carousel-item>
-        </el-carousel>
+      <div class="course-board">
       </div>
       <div>
         <div class="product-platform clearfix">
@@ -40,6 +35,10 @@
           </div>
         </div>
         <div class="product-video">
+          <div class="product-subtitle">
+            <span>产品视频</span>
+            <div class="inst-hr"></div>
+          </div>
           <video class="video-size" src="@/assets/video.mp4" controls>视频有误不能观看</video>
         </div>
         <div class="product-prop">
