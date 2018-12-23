@@ -484,3 +484,13 @@ html {
 	letter-spacing: 0.04vw;
 	color: #333333;
 }
+
+.bgBox{
+  background: url('../../assets/icon/productBg.png') no-repeat center 3vw;
+}
+img.image{
+  width: 19vw;
+  height: 12.5vw;
+  margin-top: 3vw;
+  margin-left: -1vw;
+}

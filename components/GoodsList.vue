@@ -2,9 +2,9 @@
       <div class="product">
         <el-row :gutter="20">
           <el-col :span="8" v-for="o in goodsList" :key="o.goodsId">
-            <el-card :body-style="{margin: '1vw', padding: '1vw', height: '45vw'}">
+            <el-card :body-style="{margin: '1vw', padding: '1vw', height: '45vw'}" class="bgBox">
               <img :src="o.profileUrl" class="image">
-              <div style="padding: 14px;">
+              <div style="padding: 14px;margin-top: 50px">
                 <div class="goods-title">
                     {{ o.title }}
                 </div>
