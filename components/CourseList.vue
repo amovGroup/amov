@@ -1,16 +1,21 @@
 <template>
     <div>
-        <h3>
-            <span class="el-icon-star-off"></span>
-            <span class="el-icon-star-on"></span>
+        <h3 id="hhh">
+            <!--<span class="el-icon-star-off"></span>-->
+            <!--<span class="el-icon-star-on"></span>-->
+            <span class="el-icon-point-left"></span>
+            <span class="el-icon-star-left"></span>
             <strong>{{title}}</strong>
-            <span class="el-icon-star-on"></span>
-            <span class="el-icon-star-off"></span>
+            <!--<span class="el-icon-star-on"></span>-->
+            <!--<span class="el-icon-star-off"></span>-->
+            <span class="el-icon-star-right"></span>
+            <span class="el-icon-point-right"></span>
         </h3>
         <div class="course-list">
             <el-row :gutter="20">
                 <el-col :span="6" v-for="item in list" :key="item.id" style="margin-top: 10px;margin-bottom: 10px;">
-                    <a href="https://shop142114972.taobao.com/" target="_blank" style="text-decoration: none;">
+                    <!--<a href="https://shop142114972.taobao.com/" target="_blank" style="text-decoration: none;">-->
+                  <a :href="'/course/'+item.id" target="_blank" style="text-decoration: none;">
                         <el-card shadow="never" style="border: none;" :body-style="bodyStyle">
                             <div class="course-img"></div>
                             <div class="course-name">

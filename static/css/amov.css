@@ -72,7 +72,7 @@
 }
 
 .course-list {
-  margin: 0vw 16vw;
+  margin: 0 16vw;
 }
 
 .aboutus {
@@ -188,7 +188,7 @@
 
 
 .course-board {
-  background: blue no-repeat;
+  background: url('~assets/course/courseBg.png') no-repeat;
   background-size: 100% 42vw;
 }
 
@@ -486,11 +486,43 @@ html {
 }
 
 .bgBox{
-  background: url('../../assets/icon/productBg.png') no-repeat center 3vw;
+  background: url('~assets/icon/productBg.png') no-repeat center 3vw;
 }
 img.image{
   width: 19vw;
   height: 12.5vw;
   margin-top: 3vw;
   margin-left: -1vw;
+}
+.el-icon-point-left{
+  background-image: url("~assets/icon/newPoint.jpg");
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  margin-left: -54px;
+  margin-top: 9px;
+}
+.el-icon-star-left{
+  background-image: url("~assets/icon/newStar.jpg");
+  width: 24px;
+  height: 22px;
+  position: absolute;
+  margin-left: -34px;
+  margin-top: 2px;
+}
+.el-icon-star-right{
+  background-image: url("~assets/icon/newStar.jpg");
+  width: 24px;
+  height: 22px;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+.el-icon-point-right{
+  background-image: url("~assets/icon/newPoint.jpg");
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  margin-left: 44px;
+  margin-top: 9px;
 }

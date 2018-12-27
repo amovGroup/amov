@@ -10,15 +10,15 @@
                             background-color="#545c64"
                             text-color="#fff"
                             active-text-color="#ffd04b">
-                            <el-menu-item index="1" class="course-banner">
+                            <el-menu-item index="1" class="course-banner" @click="slideshowChange(1)">
                                 <i class="el-icon-menu" ></i>
                                 <span slot="title">导航一</span>
                             </el-menu-item>
-                            <el-menu-item index="2" class="course-banner">
+                            <el-menu-item index="2" class="course-banner" @click="slideshowChange(2)">
                                 <i class="el-icon-menu"></i>
                                 <span slot="title">导航二</span>
                             </el-menu-item>
-                            <el-menu-item index="4" class="course-banner">
+                            <el-menu-item index="4" class="course-banner" @click="slideshowChange(3)">
                                 <i class="el-icon-setting"></i>
                                 <span slot="title">导航四</span>
                             </el-menu-item>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="bk2">
                         <el-carousel class="course-banner-carousel">
-                            <el-carousel-item v-for="item in 3" :key="item" style="height:100%;">
+                            <el-carousel-item v-for="item in 3" :key="item" style="height:100%;" v-bind:id="'slideshow'+item">
                                 <h3>{{ item }}</h3>
                             </el-carousel-item>
                         </el-carousel>
@@ -101,7 +101,42 @@ export default {
                 {"name": "最新课程6", "id":6}
             ],
         }
+    },
+
+  methods:{
+    slideshowChange(x){
+      console.log(x);
+      let slideshow1 = document.getElementById('slideshow1'),
+        slideshow2 = document.getElementById('slideshow2'),
+        slideshow3 = document.getElementById('slideshow3');
+      switch (x) {
+        case 1:
+          slideshow1.classList.add("is-active","is-animating");
+          slideshow2.classList.remove("is-active","is-animating");
+          slideshow3.classList.remove("is-active");slideshow3.classList.add("is-animating");
+          slideshow1.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
+          slideshow2.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
+          slideshow3.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          break;
+        case 2:
+          slideshow2.classList.add("is-active","is-animating");
+          slideshow3.classList.remove("is-active","is-animating");
+          slideshow1.classList.remove("is-active");slideshow3.classList.add("is-animating");
+          slideshow2.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
+          slideshow3.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
+          slideshow1.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          break;
+        case 3:
+          slideshow3.classList.add("is-active","is-animating");
+          slideshow1.classList.remove("is-active","//is-animating");
+          slideshow2.classList.remove("is-active");slideshow3.classList.add("is-animating");
+          slideshow3.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
+          slideshow1.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
+          slideshow2.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          break;
+      }
     }
+  }
 }
 </script>
 
