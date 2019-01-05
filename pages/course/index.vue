@@ -105,38 +105,30 @@ export default {
 
   methods:{
     slideshowChange(x){
-      console.log(x);
       let slideshow1 = document.getElementById('slideshow1'),
         slideshow2 = document.getElementById('slideshow2'),
         slideshow3 = document.getElementById('slideshow3');
       switch (x) {
         case 1:
-          slideshow1.classList.add("is-active","is-animating");
-          slideshow2.classList.remove("is-active","is-animating");
-          slideshow3.classList.remove("is-active");slideshow3.classList.add("is-animating");
-          slideshow1.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
-          slideshow2.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
-          slideshow3.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          slideshowTurn(slideshow1,slideshow2,slideshow3)
           break;
         case 2:
-          slideshow2.classList.add("is-active","is-animating");
-          slideshow3.classList.remove("is-active","is-animating");
-          slideshow1.classList.remove("is-active");slideshow3.classList.add("is-animating");
-          slideshow2.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
-          slideshow3.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
-          slideshow1.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          slideshowTurn(slideshow2,slideshow3,slideshow1);
           break;
         case 3:
-          slideshow3.classList.add("is-active","is-animating");
-          slideshow1.classList.remove("is-active","//is-animating");
-          slideshow2.classList.remove("is-active");slideshow3.classList.add("is-animating");
-          slideshow3.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
-          slideshow1.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
-          slideshow2.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+          slideshowTurn(slideshow3,slideshow1,slideshow2);
           break;
       }
     }
   }
+}
+function slideshowTurn(x,y,z){
+  x.classList.add("is-active","is-animating");
+  y.classList.remove("is-active","is-animating");
+  z.classList.remove("is-active");x.classList.add("is-animating");
+  x.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
+  y.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
+  z.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
 }
 </script>
 
