@@ -188,7 +188,7 @@
 
 
 .course-board {
-  background: url('~assets/course/courseBg.png') no-repeat;
+  background: url('../../assets/course/courseBg.png') no-repeat;
   background-size: 100% 42vw;
 }
 
@@ -486,7 +486,7 @@ html {
 }
 
 .bgBox{
-  background: url('~assets/icon/productBg.png') no-repeat center 3vw;
+  background: url('../../assets/icon/productBg.png') no-repeat center 3vw;
 }
 img.image{
   width: 19vw;
@@ -495,7 +495,6 @@ img.image{
   margin-left: -1vw;
 }
 .el-icon-point-left{
-  background-image: url("~assets/icon/newPoint.png");
   width: 10px;
   height: 10px;
   position: absolute;
@@ -503,7 +502,6 @@ img.image{
   margin-top: 9px;
 }
 .el-icon-star-left{
-  background-image: url("~assets/icon/newStar.png");
   width: 24px;
   height: 22px;
   position: absolute;
@@ -511,7 +509,6 @@ img.image{
   margin-top: 2px;
 }
 .el-icon-star-right{
-  background-image: url("~assets/icon/newStar.png");
   width: 24px;
   height: 22px;
   position: absolute;
@@ -519,12 +516,35 @@ img.image{
   margin-top: 2px;
 }
 .el-icon-point-right{
-  background-image: url("~assets/icon/newPoint.png");
   width: 10px;
   height: 10px;
   position: absolute;
   margin-left: 44px;
   margin-top: 9px;
+}
+.star1{
+  background-image: url("../../assets/icon/newStar.png");
+}
+.point1{
+  background-image: url("../../assets/icon/newPoint.png");
+}
+.star2{
+  background-image: url("../../assets/icon/primaryStar.png");
+}
+.point2{
+  background-image: url("../../assets/icon/primaryPoint.png");
+}
+.star3{
+  background-image: url("../../assets/icon/middleStar.png");
+}
+.point3{
+  background-image: url("../../assets/icon/middlePoint.png");
+}
+.star4{
+  background-image: url("../../assets/icon/highStar.png");
+}
+.point4{
+  background-image: url("../../assets/icon/highPoint.png");
 }
 .partName{
   text-align: left;
