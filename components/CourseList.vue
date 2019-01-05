@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3 id="hhh">
+        <h3>
             <!--<span class="el-icon-star-off"></span>-->
             <!--<span class="el-icon-star-on"></span>-->
             <span class="el-icon-point-left"></span>
