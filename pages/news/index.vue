@@ -42,7 +42,7 @@
                 <div style="margin-top: 5px">Offline training</div>
             </div>
             <div class="partContent">
-              <news-list title="最新课程" :list="newsList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
+              <news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
             </div>
           </el-col>
           <el-col :span="18" style="display: none" id="part3">
@@ -51,7 +51,7 @@
               <div style="margin-top: 5px">Offline training</div>
             </div>
             <div class="partContent">
-              <news-list title="最新课程" :list="newsList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
+              <news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
             </div>
           </el-col>
         </el-row>
@@ -66,6 +66,7 @@
   import ProductList from '~/components/ProductList.vue'
   import NewsList from '~/components/NewsList'
   import dynamicsList from '~/components/dynamicsList'
+  import axios from 'axios';
   export default {
     components: {
       Logo, CarouselList, ProductList, NewsList, dynamicsList
@@ -78,7 +79,7 @@
     },
     data() {
       return {
-        newsList: [
+        trainingList: [
           {name: "PIXHAWK二次开发培训", id:1,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:2,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:3,station:"北京站",time:"(9月22日~9月24日)"},
@@ -86,13 +87,7 @@
           {name: "PIXHAWK二次开发培训", id:5,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:6,station:"北京站",time:"(9月22日~9月24日)"}
         ],
-        dynamicsList:[
-          {title:"极飞C2000分析报告",time:"2018年11月6日",content:"极飞C2000分析报告 一．C2000介绍： 极飞在3 月 20 日春季发布会上发布了地理智能测绘无人机（XGeomatics C2000)。这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭",imgUrl:""},
-          {title:"极飞C2000分析报告",time:"2018年11月6日",content:"极飞C2000分析报告 一．C2000介绍： 极飞在3 月 20 日春季发布会上发布了地理智能测绘无人机（XGeomatics C2000)。这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭",imgUrl:""},
-          {title:"极飞C2000分析报告",time:"2018年11月6日",content:"极飞C2000分析报告 一．C2000介绍： 极飞在3 月 20 日春季发布会上发布了地理智能测绘无人机（XGeomatics C2000)。这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭",imgUrl:""},
-          {title:"极飞C2000分析报告",time:"2018年11月6日",content:"极飞C2000分析报告 一．C2000介绍： 极飞在3 月 20 日春季发布会上发布了地理智能测绘无人机（XGeomatics C2000)。这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭",imgUrl:""},
-          {title:"极飞C2000分析报告",time:"2018年11月6日",content:"极飞C2000分析报告 一．C2000介绍： 极飞在3 月 20 日春季发布会上发布了地理智能测绘无人机（XGeomatics C2000)。这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭这款应用于测绘领域的无人机，不仅能解决农业测绘的问题，还标志着极飞在农业领域的第一个技术闭",imgUrl:""}
-        ]
+        dynamicsList:getDate('http://localhost:8080/api/news/dynamics')
       }
     },
     methods: {
@@ -114,11 +109,27 @@
       }
     },
   }
-
+  //官方动态、线下培训、测试评价切换
   function clickButt(x,y,z){
     x.style.display = "block";
     y.style.display = "none";
     z.style.display = "none";
+  }
+  //获取官方动态、线下培训、测试评价具体内容
+  function getDate(url){
+    let val = [];
+    axios(url)
+      .then(function(data){
+        let datum = data.data.body;
+        for(let k in datum){
+          val.push(datum[k]);
+        }
+        console.log(val);
+      })
+      .catch(function(error) {
+        console.log(error)
+      });
+    return val;
   }
 </script>
 <style>

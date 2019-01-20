@@ -5,7 +5,7 @@
                 <el-card class="card" :body-style="{ padding: '0px' }">
                     <div class="bk1">
                         <el-menu
-                            default-active="2"
+                            default-active="1"
                             class="course-banner-menu"
                             background-color="#545c64"
                             text-color="#fff"
@@ -26,109 +26,93 @@
                     </div>
                     <div class="bk2">
                         <el-carousel class="course-banner-carousel">
-                            <el-carousel-item v-for="item in 3" :key="item" style="height:100%;" v-bind:id="'slideshow'+item">
-                                <h3>{{ item }}</h3>
+                            <el-carousel-item v-for="(item,index) in slideshow" :key="item.carouselId" :id="'slideshow'+index" style="height:100%;" >
+                              <img :src="item.imageUrl" :alt="item.title">
                             </el-carousel-item>
                         </el-carousel>
                     </div>
                 </el-card>
             </div>
             <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="最新课程" :list="courseList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="1"></course-list>
+                <course-list title="最新课程" :list="courseList1" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="1"></course-list>
             </div>
             <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="初级课程" :list="courseList" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="2"></course-list>
+                <course-list title="初级课程" :list="courseList2" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="2"></course-list>
             </div>
             <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="中级课程" :list="courseList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="3"></course-list>
+                <course-list title="中级课程" :list="courseList3" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="3"></course-list>
             </div>
             <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="高级课程" :list="courseList" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="4"></course-list>
+                <course-list title="高级课程" :list="courseList4" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="4"></course-list>
             </div>
             <div class="course-tutor">
-                <div class="course-teacher">
-                    <el-row :gutter="20">
-                        <el-col :span="6">
-                            <el-card style="height: 27vw;overflow: scroll;" :body-style="{overflow: 'scroll'}">
-                                <img src="@/assets/course/profile.jpg">
-                                <p style="padding:10px;"><strong>名字</strong></p>
-                                <p>正文介绍很长的那种Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet facilis similique non reiciendis, delectus obcaecati, id neque, rerum officia recusandae tempore.</p>
-                            </el-card>
-                        </el-col>
-                        <el-col :span="6">
-                            <el-card style="height: 27vw;overflow: scroll;" :body-style="{overflow: 'scroll'}">
-                                <img src="@/assets/course/profile.jpg">
-                                <p style="padding:10px;"><strong>名字</strong></p>
-                                <p>正文介绍很长的那种Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet facilis similique non reiciendis, delectus obcaecati, id neque, rerum officia recusandae tempore.</p>
-                            </el-card>
-                        </el-col>
-                        <el-col :span="6">
-                            <el-card style="height: 27vw;overflow: scroll;" :body-style="{overflow: 'scroll'}">
-                                <img src="@/assets/course/profile.jpg">
-                                <p style="padding:10px;"><strong>名字</strong></p>
-                                <p>正文介绍很长的那种Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet facilis similique non reiciendis, delectus obcaecati, id neque, rerum officia recusandae tempore.</p>
-                            </el-card>
-                        </el-col>
-                        <el-col :span="6">
-                            <el-card style="height: 27vw;overflow: scroll;" :body-style="{overflow: 'scroll'}">
-                                <img src="@/assets/course/profile.jpg">
-                                <p style="padding:10px;"><strong>名字</strong></p>
-                                <p>正文介绍很长的那种Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet facilis similique non reiciendis, delectus obcaecati, id neque, rerum officia recusandae tempore.</p>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </div>
+                <teacher-list :teacherList="teacherList"></teacher-list>
             </div>
         </div>
     </section>
 </template>
-
 <script>
+  let defaultUrl = 'http://localhost:8080/api/';
 import CourseList from '@/components/CourseList'
+import TeacherList from '@/components/TeacherList'
+import axios from 'axios';
 export default {
-    components: {
-        CourseList
-    },
-
-    data () {
-        return {
-            courseList: [
-                {"name": "最新课程1", "id":1},
-                {"name": "最新课程2", "id":2},
-                {"name": "最新课程3", "id":3},
-                {"name": "最新课程4", "id":4},
-                {"name": "最新课程5", "id":5},
-                {"name": "最新课程6", "id":6}
-            ],
-        }
-    },
-
+  components: {
+    CourseList,TeacherList
+  },
+  data () {
+    return {
+      courseList1:getCourseDate(defaultUrl + 'course/latest'),
+      courseList2:getCourseDate(defaultUrl + 'course/elementary'),
+      courseList3:getCourseDate(defaultUrl + 'course/intermediate'),
+      courseList4:getCourseDate(defaultUrl + 'course/advanced'),
+      teacherList:getCourseDate(defaultUrl + 'course/teacher/list'),
+      slideshow:getCourseDate(defaultUrl + 'carousel/course/list')
+    }
+  },
   methods:{
+    //左边按钮控制轮播图显示函数
     slideshowChange(x){
-      let slideshow1 = document.getElementById('slideshow1'),
-        slideshow2 = document.getElementById('slideshow2'),
-        slideshow3 = document.getElementById('slideshow3');
+      let slideshow0 = document.getElementById('slideshow0'),
+        slideshow1 = document.getElementById('slideshow1'),
+        slideshow2 = document.getElementById('slideshow2');
       switch (x) {
         case 1:
-          slideshowTurn(slideshow1,slideshow2,slideshow3)
+          slideshowTurn(slideshow0,slideshow1,slideshow2)
           break;
         case 2:
-          slideshowTurn(slideshow2,slideshow3,slideshow1);
+          slideshowTurn(slideshow1,slideshow2,slideshow0);
           break;
         case 3:
-          slideshowTurn(slideshow3,slideshow1,slideshow2);
+          slideshowTurn(slideshow2,slideshow0,slideshow1);
           break;
       }
     }
   }
 }
+//左边按钮控制轮播图显示函数
 function slideshowTurn(x,y,z){
-  x.classList.add("is-active","is-animating");
-  y.classList.remove("is-active","is-animating");
-  z.classList.remove("is-active");x.classList.add("is-animating");
-  x.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
-  y.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
-  z.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+    x.classList.add("is-active","is-animating");
+    y.classList.remove("is-active","is-animating");
+    z.classList.remove("is-active");x.classList.add("is-animating");
+    x.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
+    y.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
+    z.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
+}
+//封装axios函数，返回课程分类中需要的数据
+function getCourseDate(url){
+  let val = [];
+  axios(url)
+    .then(function(data){
+      let datum = data.data.body;
+      for(let k in datum){
+        val.push(datum[k])
+      }
+    })
+    .catch(function(error) {
+        console.log(error)
+    });
+  return val;
 }
 </script>
 
@@ -142,7 +126,7 @@ function slideshowTurn(x,y,z){
     max-width: 240px;
 }
 .bk2 {
-    background-color: brown;
+    /*background-color: brown;*/
     height: 31vw;
     float: left;
     width: calc(100% - 13vw);
@@ -190,7 +174,7 @@ function slideshowTurn(x,y,z){
 .course-price {
 	font-size: 18px;
 	letter-spacing: 0.9px;
-	color: #ee3617;
+	/*color: #ee3617;*/
 }
 
 .course-note {
@@ -204,4 +188,11 @@ function slideshowTurn(x,y,z){
     max-height: 600px;
     border-radius: 20px;
 }
+.el-card__body{
+  overflow: hidden !important;
+}
+  .el-carousel__item>img{
+    width: 100%;
+    height: 100%;
+  }
 </style>

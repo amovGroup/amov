@@ -16,15 +16,14 @@
                   <div class="inst-hr"></div>
                   <div class="inst-gene">
                     <span>
-                      该款视觉无人机开发套件是一款针对开发者，上手简单，功能强大、且方便灵活扩展的无人机开发平台。其主要硬件包括：PIXHAWK飞控一套，英伟达TX1/TX2板卡，旋转式激光雷达，单目/双目摄像头。可以开发无人机室内定位，无人机视觉相关算法。借助英伟达的TX1/TX2支持深度学习的GPU来做复杂的室内定位和机器视觉相关的算法开发。我们提供完整的开发环境和开发例程。帮助大家迅速搭建好一整套的无人机机器视觉开发环境，再利用我们的提供的Demo例程上手开发工作，会事半功倍，更加去专注于算法的开发，让研发更高效。该款视觉无人机开发套件是一款针对开发者，上手简单，功能强大手简单，功能强大手简单，功能强大
-                      手简单，功能强大.
+                      {{proInfo.product.intro}}
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             <div class="inst-purchase">
-              <div class="inst-cash">¥11799.00</div>
+              <div class="inst-cash">¥{{proInfo.product.price}}</div>
               <div>
                 <el-button type="primary" size="mini" round>&nbsp;&nbsp;&nbsp;立即购买&nbsp;&nbsp;&nbsp;</el-button>
               </div>
@@ -39,7 +38,7 @@
             <span>产品视频</span>
             <div class="inst-hr"></div>
           </div>
-          <video class="video-size" src="@/assets/video.mp4" controls>视频有误不能观看</video>
+          <video class="video-size" :src="proInfo.productInfo.price" controls>视频有误不能观看</video>
         </div>
         <div class="product-prop">
           <div class="product-subtitle">
@@ -118,6 +117,10 @@ export default {
   components: {
     Logo
   },
+  async asyncData({$axios,params}){
+    const proInfo = await $axios.get('http://localhost:8080/api/product/' + params.id);
+    return {proInfo:proInfo.data.body}
+  },
   data() {
     return {
       pics: [
@@ -125,10 +128,15 @@ export default {
         '/_nuxt/assets/carousel/2.jpeg',
         '/_nuxt/assets/carousel/3.jpeg',
         '/_nuxt/assets/carousel/4.jpeg'
-      ]
+      ],
+      proInfo:[]
     }
   }
 }
+function getInfo(){
+  console.log(11);
+}
+setTimeout(getInfo,3000)
 </script>
 
 <style>

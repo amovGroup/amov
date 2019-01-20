@@ -32,14 +32,16 @@
             <el-row :gutter="20">
                 <el-col :span="6" v-for="item in list" :key="item.id" style="margin-top: 10px;margin-bottom: 10px;">
                     <!--<a href="https://shop142114972.taobao.com/" target="_blank" style="text-decoration: none;">-->
-                  <a :href="'/course/'+item.id" target="_blank" style="text-decoration: none;">
+                  <a :href="'/course/'+item.courseId" target="_blank" style="text-decoration: none;">
                         <el-card shadow="never" style="border: none;" :body-style="bodyStyle">
-                            <div class="course-img"></div>
-                            <div class="course-name">
-                                {{item.name}}
+                            <div class="course-img">
+                              {{item.profileUrl}}
                             </div>
-                            <div class="course-class">课程分类 <span><i class="el-icon-view"></i>1234</span></div>
-                            <div class="course-price">¥899 <span class="course-note">(包括开发环境)</span></div>
+                            <div class="course-name">
+                                {{item.title}}
+                            </div>
+                            <div class="course-class">{{item.classify}} <span><i class="el-icon-view"></i>1234</span></div>
+                            <div class="course-price">¥{{item.price}} <span class="course-note">{{item.extraIntro}}</span></div>
                         </el-card>
                     </a>
                 </el-col>
