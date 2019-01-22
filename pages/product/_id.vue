@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="platform-pic">
-            <img src="@/assets/product/1.jpg" alt="pic">
+            <img :src="proInfo.product.profileUrl" alt="pic">
           </div>
         </div>
         <div class="product-video">
@@ -38,70 +38,32 @@
             <span>产品视频</span>
             <div class="inst-hr"></div>
           </div>
-          <video class="video-size" :src="proInfo.productInfo.price" controls>视频有误不能观看</video>
+          <video class="video-size" :src="proInfo.productInfo.videoUrl" controls>视频有误不能观看</video>
         </div>
         <div class="product-prop">
           <div class="product-subtitle">
-            <span>产品概述</span>
+            <span>产品属性</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>
-               品牌：Lorem, ipsum dolor.
-              </p>
-              <p>
-               名称：, ipsum dolor.
-              </p>
-              <p>
-               机载电脑：ipsum dolor.
-              </p>
-              <p>
-               二维激光雷达：Lorem, ipsum dolor.
-              </p>
-              <p>
-               单目相机：Lorem, ipsum dolor.
-              </p>
+              <p>{{proInfo.productInfo.property}}</p>
             </div>
           </div>
         </div>
         <div class="product-instruction">
           <div class="product-subtitle">
-            <span>产品概述</span>
+            <span>功能介绍</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>
-               品牌：Lorem, ipsum dolor.
-               Lorem ipsum, dolor sit amet 
-               consectetur adipisicing elit. Labore, magni illo dolorum quae maiores delectus provident aut accusamus facilis necessitatibus aspernatur doloribus ipsa autem non officiis quas ab illum, fugit possimus voluptate?
-              </p>
+              <p>{{proInfo.productInfo.function}}</p>
             </div>
           </div>
         </div>
         <div class="product-feature">
           <div class="product-subtitle">
-            <span>产品概述</span>
+            <span>产品特色</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>Lorem ipsum dolor sit amet.</p>
-              <ul>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-              </ul>
-              <p>Lorem ipsum dolor sit amet.</p>
-              <ul>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-              </ul>
-              <p>Lorem ipsum dolor sit amet.</p>
-              <ul>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-              </ul>
+              <p>{{proInfo.productInfo.feature}}</p>
             </div>
           </div>
         </div>
@@ -133,10 +95,6 @@ export default {
     }
   }
 }
-function getInfo(){
-  console.log(11);
-}
-setTimeout(getInfo,3000)
 </script>
 
 <style>

@@ -42,16 +42,17 @@
                 <div style="margin-top: 5px">Offline training</div>
             </div>
             <div class="partContent">
-              <news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
+              <dynamics-list :list="training"></dynamics-list>
+              <!--<news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>-->
             </div>
           </el-col>
           <el-col :span="18" style="display: none" id="part3">
             <div class="partName">
               <div>测试评价</div>
-              <div style="margin-top: 5px">Offline training</div>
+              <div style="margin-top: 5px">Test evaluation</div>
             </div>
             <div class="partContent">
-              <news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>
+              <dynamics-list :list="evaluation"></dynamics-list>
             </div>
           </el-col>
         </el-row>
@@ -79,15 +80,17 @@
     },
     data() {
       return {
-        trainingList: [
+/*        trainingList: [
           {name: "PIXHAWK二次开发培训", id:1,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:2,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:3,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:4,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:5,station:"北京站",time:"(9月22日~9月24日)"},
           {name: "PIXHAWK二次开发培训", id:6,station:"北京站",time:"(9月22日~9月24日)"}
-        ],
-        dynamicsList:getDate('http://localhost:8080/api/news/dynamics')
+        ],*/
+        dynamicsList:getDate('http://localhost:8080/api/news/dynamics'),
+        evaluation:getDate('http://localhost:8080/api/news/evaluation'),
+        training:getDate('http://localhost:8080/api/news/training')
       }
     },
     methods: {

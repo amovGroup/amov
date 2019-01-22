@@ -13,7 +13,7 @@
               <p style="font-size: 12px;overflow: hidden">{{item.content}}</p>
             </div>
             <div class="btnBox">
-              <button class="urlBtn">了解详情</button>
+              <button class="urlBtn" @click="goUrl(item.newsId)">了解详情</button>
             </div>
           </div>
         </el-col>
@@ -24,8 +24,12 @@
 
 <script>
   export default {
-    props: ['list']
-
+    props: ['list'],
+    methods:{
+      goUrl(params){
+        window.open('http://127.0.0.1:3000/news/' + params);
+      }
+    }
   }
 </script>
 
