@@ -561,7 +561,7 @@ img.image{
 }
 .sign_in_box{
   width: 100%;
-  height: 100%;
+  height: calc(100% - 4vw);
   position: absolute;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -571,17 +571,21 @@ img.image{
   width: 25vw;
   height: 28vw;
   margin-left: 54.7vw;
-  margin-top: 9.4vw;
+  margin-top: 7.4vw;
   border-radius: 7px;
   background-color: white;
   text-align: center;
+}
+#sign_up{
+  height: 35vw;
+  margin-top: 3.5vw;
 }
 .logoBox{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.signForm>h3{
+.signForm h3{
   padding-top: 15px;
 }
 .inputBox>input {
@@ -592,11 +596,15 @@ img.image{
   padding: 8px;
   border-radius: 5px;
   color: #777;
+  margin-top: 20px;
+}
+.inputBox>input:first-child{
+  margin-top: 0;
 }
 .inputBox {
   margin-top: 15px;
 }
-#passwordTxt{
+#passwordTxt,#passwordAgain{
   position: absolute;
   margin-left: 54px;
   font-size: 14px;
@@ -621,8 +629,8 @@ img.image{
   text-decoration: none;
   padding: 2px 3px;
 }
-.btnBox{
-  margin-top: 15px;
+#sign_up .btnBox,#sign_in .btnBox{
+  margin-top: 25px;
 }
 .btnBox>button{
   width: 200px;
@@ -630,6 +638,7 @@ img.image{
   border-radius: 16px;
   background-color: #5175EA;
   color: white;
+  padding-top: 8px;
 }
 .signForm button{
   outline: none;
@@ -651,3 +660,118 @@ img.image{
   background-image: url("../../assets/icon/weixin.png");
   background-size: 100% 80%;
 }
+.sign_in_box ~ .footer{
+  display: none;
+}
+#sign_up_id .btnBox{
+  margin-top: 40px;
+}
+.sign_in_box .inputBox p.inputHint{
+  text-align: left;
+  margin-left: 53px;
+  font-size: 12px;
+  position: absolute;
+  color: red;
+}
+#sendCode{
+  padding: 0;
+  padding-top: 2px;
+  margin-left: -6px;
+  width: 90px;
+  height: 31px;
+  background-color: #5175ea;
+  color: #ffffff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+#authCode{
+  width: 165px;
+  margin-left: -1px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+/*顶部菜单用户名和退出登录start*/
+#mainMenuUl{
+  display: inline-flex;
+  float: right;
+}
+#mainMenuUl>li{
+  list-style: none;
+  display: inline-block;
+}
+#mainMenuUl>li>a{
+  display: block;
+  height: 55px;
+  line-height: 55px;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  padding: 0 15px;
+}
+#mainMenuUl>li>a:first-child{
+  max-width: 120px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/*顶部菜单用户名和退出登录end*/
+/*模态框start*/
+.modal-backdrop {
+  position: fixed;
+  top: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+.modal-backdrop .modal {
+  width: 500px;
+  height: 300px;
+  background-color: #fff;
+  box-shadow: 2px 2px 20px 1px;
+  overflow-x:auto;
+  display: flex;
+  flex-direction: column;
+}
+.modal-backdrop .modal-header,.modal-backdrop .modal-footer {
+  padding: 15px;
+  display: flex;
+}
+.modal-backdrop .modal-header {
+  border-bottom: 1px solid #eee;
+  color: #4aae9b;
+  justify-content: space-between;
+}
+.modal-backdrop .modal-footer {
+  border-top: 1px solid #eee;
+  justify-content: center;
+}
+.modal-backdrop .modal-body {
+  position: relative;
+  padding: 20px 10px;
+  text-align: center;
+}
+.modal-backdrop .btn-close {
+  border: none 0;
+  font-size: 20px;
+  padding: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #4aae9b;
+  background-color: transparent;
+
+}
+.modal-backdrop .btn-green {
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  width: 80px;
+  height: 35px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 35px;
+}
+/*模态框end*/
