@@ -86,9 +86,8 @@
         const username = document.getElementById('username').value,
           password = document.getElementById('password').value,
           userInfo = { username: username, password: password };
-        console.log('username:' + username + ";password:" + password);
         if (this.usernameStatus === 1 && this.passwordHave === 1) {
-          axios.post('http://47.99.155.46:8081/account/sign-in', userInfo)
+          axios.post('http://localhost:8081/account/sign-in', userInfo)
             .then(response => {
               if(!window.localStorage){
                 alert("浏览器不支持localStorage！")
