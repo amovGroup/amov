@@ -97,17 +97,12 @@
         signUpMenu.style.display = "none";
         signInMenu.style.display = "none";
         mainMenuUl.style.display = "block";
-        // document.getElementById("signInMenu").style.display = "none";
-        // document.getElementById("mainMenuUl").style.display = "block";
         this.cookiesInfo = jsonCookie.username
       }
       else {
         signUpMenu.style.display = "block";
         signInMenu.style.display = "block";
         mainMenuUl.style.display = "none";
-      //   document.getElementById("signUpMenu").style.display = "block";
-      //   document.getElementById("signInMenu").style.display = "block";
-      //   document.getElementById("mainMenuUl").style.display = "none";
       }
     }
   }
