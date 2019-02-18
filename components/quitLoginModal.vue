@@ -3,7 +3,7 @@
     <div class="modal">
       <div class="modal-header">
         <slot name="header">
-          <button type="button" class="btn-close" @click="close">x</button>
+          <button type="button" class="btn-close" @click="close()">x</button>
         </slot>
       </div>
       <div class="modal-body">
@@ -12,7 +12,7 @@
       <div class="modal-footer">
         <slot name="footer">
           <button type="button" class="btn-green" @click="quitLogin()" style="background-color: red">是</button>
-          <button type="button" class="btn-green" @click="modalClose()" style="background-color: #bbb7b7">取消</button>
+          <button type="button" class="btn-green close" @click="modalClose()" style="background-color: #bbb7b7">取消</button>
         </slot>
       </div>
     </div>
@@ -28,6 +28,9 @@
       },
     methods: {
       modalClose() {
+        this.$emit('close')
+      },
+      close(){
         this.$emit('close')
       },
       quitLogin() {

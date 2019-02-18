@@ -102,13 +102,14 @@
                   // storage.setItem("username",username);
                   //设置cookies
                   let date=new Date();
-                  let expireDays=5;
+                  let expireDays=14;
                   //将date设置为5天以后的时间
                   date.setTime(date.getTime()+expireDays*24*3600*1000);
                   //将userId和userName两个cookie设置为10天后过期
                   document.cookie = "cache=" + cache + "; expires=" + date.toGMTString();
                   document.cookie = "username=" + username + "; expires=" + date.toGMTString();
                   alert("登录成功");
+                  window.location.reload()
                 }
                 else{
                   alert("登录失败，"+response.data.msg);

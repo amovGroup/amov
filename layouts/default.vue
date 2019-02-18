@@ -18,9 +18,9 @@
         <el-menu-item class="nav-menu-item" index="7"><nuxt-link to="/forum" class="router-nav">论坛</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item" index="8"><a href="https://shop142114972.taobao.com" target="_blank" class="router-nav">店铺</a></el-menu-item>
         <el-menu-item class="nav-menu-item" index="9"><nuxt-link to="/about" class="router-nav">关于我们</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item right-item" index="10" v-if="!cookiesInfo"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item right-item" index="11" v-if="!cookiesInfo"><nuxt-link to="/sign_in" class="router-nav">登录</nuxt-link></el-menu-item>
-        <ul id="mainMenuUl" v-if="cookiesInfo">
+        <el-menu-item class="nav-menu-item right-item" index="10" id="signUpMenu"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item right-item" index="11" id="signInMenu"><nuxt-link to="/sign_in" class="router-nav">登录</nuxt-link></el-menu-item>
+        <ul id="mainMenuUl">
           <li style="margin-right: 20px"><a href="javascript:;" title="用户名">{{cookiesInfo}}</a></li>
           <li style="margin-right: 5px"><a href="javascript:;" style="text-decoration: none" title="退出登录" @click="openModal">退出登录</a></li>
         </ul>
@@ -83,6 +83,9 @@
       }
     },
     beforeMount:function() {
+      const signUpMenu = document.getElementById("signUpMenu"),
+        signInMenu = document.getElementById("signInMenu"),
+        mainMenuUl = document.getElementById("mainMenuUl")
       if(document.cookie){
         let cookie = document.cookie.replace(/\s+/g,"");
         let cookieArr = cookie.split(";");
@@ -91,7 +94,20 @@
           let arr = i.split("=");
           jsonCookie[arr[0]] =arr[1];
         });
+        signUpMenu.style.display = "none";
+        signInMenu.style.display = "none";
+        mainMenuUl.style.display = "block";
+        // document.getElementById("signInMenu").style.display = "none";
+        // document.getElementById("mainMenuUl").style.display = "block";
         this.cookiesInfo = jsonCookie.username
+      }
+      else {
+        signUpMenu.style.display = "block";
+        signInMenu.style.display = "block";
+        mainMenuUl.style.display = "none";
+      //   document.getElementById("signUpMenu").style.display = "block";
+      //   document.getElementById("signInMenu").style.display = "block";
+      //   document.getElementById("mainMenuUl").style.display = "none";
       }
     }
   }
