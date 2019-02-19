@@ -194,5 +194,6 @@
     color: white;
     margin-left: calc(100% - 110px);
     cursor: pointer;
+    padding-top: 0;
   }
 </style>
