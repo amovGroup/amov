@@ -66,11 +66,11 @@
   import CarouselList from '~/components/CarouselList.vue'
   import ProductList from '~/components/ProductList.vue'
   import NewsList from '~/components/NewsList'
-  import dynamicsList from '~/components/dynamicsList'
+  import DynamicsList from '~/components/DynamicsList'
   import axios from 'axios';
   export default {
     components: {
-      Logo, CarouselList, ProductList, NewsList, dynamicsList
+      Logo, CarouselList, ProductList, NewsList, DynamicsList
     },
     async asyncData({ $axios }) {
       const json = await $axios.$post('/api/carousel/list', {location: 0})
@@ -80,14 +80,6 @@
     },
     data() {
       return {
-/*        trainingList: [
-          {name: "PIXHAWK二次开发培训", id:1,station:"北京站",time:"(9月22日~9月24日)"},
-          {name: "PIXHAWK二次开发培训", id:2,station:"北京站",time:"(9月22日~9月24日)"},
-          {name: "PIXHAWK二次开发培训", id:3,station:"北京站",time:"(9月22日~9月24日)"},
-          {name: "PIXHAWK二次开发培训", id:4,station:"北京站",time:"(9月22日~9月24日)"},
-          {name: "PIXHAWK二次开发培训", id:5,station:"北京站",time:"(9月22日~9月24日)"},
-          {name: "PIXHAWK二次开发培训", id:6,station:"北京站",time:"(9月22日~9月24日)"}
-        ],*/
         dynamicsList:getDate('http://localhost:8080/api/news/dynamics'),
         evaluation:getDate('http://localhost:8080/api/news/evaluation'),
         training:getDate('http://localhost:8080/api/news/training')
