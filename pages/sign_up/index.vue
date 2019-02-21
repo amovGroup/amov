@@ -194,7 +194,7 @@
           time(sendCode,wait);
           const phoneNum = document.getElementById('phoneNumber').value,
             phoneNumber = "phoneNumber=" + phoneNum;
-          axios.post('http://localhost:8081/account/send',phoneNumber)
+          axios.post('http://47.99.155.46:8081/account/send',phoneNumber)
             .then(response => {
               console.log(response);
               if(response.data.status===1){
