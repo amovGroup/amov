@@ -105,8 +105,8 @@
                   //将date设置为5天以后的时间
                   date.setTime(date.getTime()+expireDays*24*3600*1000);
                   //将userId和userName两个cookie设置为10天后过期
-                  document.cookie = "cache=" + cache + "; expires=" + date.toGMTString();
-                  document.cookie = "username=" + username + "; expires=" + date.toGMTString();
+                  document.cookie = "cache=" + cache + "; expires=" + date.toGMTString() + "; domain=amovauto.com; path=/";
+                  document.cookie = "username=" + username + "; expires=" + date.toGMTString() + "; domain=amovauto.com; path=/";
                   alert("登录成功");
                   window.location.reload()
                 }

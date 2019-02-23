@@ -94,10 +94,17 @@
           let arr = i.split("=");
           jsonCookie[arr[0]] =arr[1];
         });
-        signUpMenu.style.display = "none";
-        signInMenu.style.display = "none";
-        mainMenuUl.style.display = "block";
-        this.cookiesInfo = jsonCookie.username
+        if(jsonCookie.cache){
+          signUpMenu.style.display = "none";
+          signInMenu.style.display = "none";
+          mainMenuUl.style.display = "block";
+          this.cookiesInfo = jsonCookie.username
+        }
+        else {
+          signUpMenu.style.display = "block";
+          signInMenu.style.display = "block";
+          mainMenuUl.style.display = "none";
+        }
       }
       else {
         signUpMenu.style.display = "block";
