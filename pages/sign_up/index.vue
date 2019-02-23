@@ -168,7 +168,7 @@
             username = document.getElementById('username').value,
             password = document.getElementById('password').value,
             addDTO = {"age":0,"status":1,"password":password,"phoneNumber":phoneNum,"username":username};
-          axios.post('http://localhost:8081/account/validate'+"?code="+authCode,addDTO)
+          axios.post('http://47.99.155.46:8081/account/validate'+"?code="+authCode,addDTO)
             .then(response =>{
               console.log(response);
               if(response.data.status === 1){
