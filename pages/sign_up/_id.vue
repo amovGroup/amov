@@ -23,7 +23,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     data(){
       return {
@@ -87,7 +86,7 @@
           password = document.getElementById('password').value;
         if(this.usernameStatus === 1 && this.passwordStatus === 1 && this.againStatus === 0 ){
           const registerInfo = {username:username,phoneNumber:phoneNum,password:password,status:1,age:16}
-          axios.post('http://47.99.155.46:8081/system/user/add',registerInfo)
+          axios.post('login/system/user/add',registerInfo)
             .then(response => {
               if(response.data.status === 1){
                 console.log(response);

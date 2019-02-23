@@ -32,6 +32,6 @@ export default {
       image_url: "~/assets/home/family.jpg",
       goodsList: [{name:"123"}, {name:"123"}, {name:"123"}]
     }
-  },
+  }
 }
 </script>

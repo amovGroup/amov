@@ -7,69 +7,11 @@
         <hr class="hr-line" size="10" />
         <div>
           <el-row :gutter="20">
-            <el-col :span="8" style="margin-top: 10px;">
+            <el-col :span="8" v-for="item in software" :key="item" style="margin-top: 10px;">
               <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
+                <img :src="item.profileUrl" class="image">
                 <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top: 10px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top: 10px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top: 10px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top: 10px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
-                </div>
-              </el-card>
-            </el-col>
-            <el-col :span="8" style="margin-top: 10px;">
-              <el-card>
-                <img src="@/assets/home/products/car.jpg" class="image">
-                <div style="padding: 14px;">
-                  <span>好吃的汉堡Lorem ipsum dolor sit Lorem ipsum dolor sit 
-                    amet consectetur adipisicing elit. Obcaecati sint,
-                    illum architecto voluptates praesentium, iusto culpa eligendi 
-                    voluptatum recusandae ducimus.</span>
+                  <span>{{item.intro}}</span>
                 </div>
               </el-card>
             </el-col>
@@ -89,12 +31,14 @@ export default {
   },
   async asyncData({ $axios }) {
     const json = await $axios.$post('/api/carousel/list', {location: 0})
+    const software = await $axios.$get('/api/product/software/list')
     const image = await $axios.$get('/api/init/image')
-    return { pics: json.body, image_url: image }
+    return { pics: json.body, image_url: image, software: software.body}
   },
   data() {
     return {
-      pics: []
+      pics: [],
+      software: []
     }
   }
 }

@@ -45,7 +45,7 @@
             <span>产品属性</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>{{proInfo.productInfo.property}}</p>
+              <div>{{proInfo.productInfo.property}}</div>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
             <span>功能介绍</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>{{proInfo.productInfo.function}}</p>
+              <div>{{proInfo.productInfo.function}}</div>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
             <span>产品特色</span>
             <div class="inst-hr"></div>
             <div class="inst-gene">
-              <p>{{proInfo.productInfo.feature}}</p>
+              <div>{{proInfo.productInfo.feature}}</div>
             </div>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default {
     Logo
   },
   async asyncData({$axios,params}){
-    const proInfo = await $axios.get('http://localhost:8080/api/product/' + params.id);
+    const proInfo = await $axios.get('/api/product/' + params.id);
     return {proInfo:proInfo.data.body}
   },
   data() {

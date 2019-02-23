@@ -67,7 +67,6 @@
   import ProductList from '~/components/ProductList.vue'
   import NewsList from '~/components/NewsList'
   import DynamicsList from '~/components/DynamicsList'
-  import axios from 'axios';
   export default {
     components: {
       Logo, CarouselList, ProductList, NewsList, DynamicsList

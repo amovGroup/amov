@@ -20,7 +20,7 @@
 <script>
   export default {
     async asyncData({$axios,params}){
-      const news = await $axios.get('http://localhost:8080/api/news/' + params.id);
+      const news = await $axios.get('/api/news/' + params.id);
       return {news:news.data.body,params:params}
     },
     data() {

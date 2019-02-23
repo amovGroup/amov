@@ -33,7 +33,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     data() {
       return {
@@ -87,7 +86,7 @@
           password = document.getElementById('password').value,
           userInfo = { username: username, password: password };
         if (this.usernameStatus === 1 && this.passwordHave === 1) {
-          axios.post('http://47.99.155.46:8081/account/sign-in', userInfo)
+          axios.post('login/account/sign-in', userInfo)
             .then(response => {
               if(!window.localStorage){
                 alert("浏览器不支持localStorage！")

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     name: 'quitLoginModal',
     data () {
@@ -42,7 +41,7 @@
           jsonCookie[arr[0]] =arr[1];
         });
         const cookies = jsonCookie.cache
-        axios.post("http://47.99.155.46:8081/account/logout",cookies)
+        axios.post('login/account/logout',cookies)
           .then(response => {
             console.log(response)
             if(response.data.status === 3){

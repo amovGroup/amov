@@ -41,7 +41,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     data(){
       return {
@@ -139,36 +138,14 @@
           this.againStatus = (password===again?2:1);
         }
       },
-      /*sendCode(){
-        if(this.phoneNumStatus === 1){
-          const phoneNum = document.getElementById('phoneNumber').value,
-            phoneNumber = "phoneNumber=" + phoneNum;
-          axios.post('http://localhost:8081/account/send',phoneNumber)
-            .then(response => {
-              console.log(response);
-              if(response.data.status===1){
-                alert("成功发送验证码");
-              }
-              else {
-                alert("验证码未成功发送，请稍后再试");
-              }
-            } )
-            .catch(error => {
-              console.log(error)
-            })
-        }
-        else{
-          alert("请先正确输入手机号");
-        }
-      },*/
       register(){
         if(this.phoneNumStatus === 1 && this.authCodeStatus === 1 && this.usernameStatus === 1 && this.againStatus === 2){
           const phoneNum = document.getElementById('phoneNumber').value,
             authCode = document.getElementById('authCode').value,
             username = document.getElementById('username').value,
             password = document.getElementById('password').value,
-            addDTO = {"age":0,"status":1,"password":password,"phoneNumber":phoneNum,"username":username};
-          axios.post('http://localhost:8081/account/validate'+"?code="+authCode,addDTO)
+            addDTO = {"age":1,"status":1,"password":password,"phoneNumber":phoneNum,"username":username};
+          axios.post('/login/account/validate'+"?code="+authCode,addDTO)
             .then(response =>{
               console.log(response);
               if(response.data.status === 1){
@@ -194,7 +171,7 @@
           time(sendCode,wait);
           const phoneNum = document.getElementById('phoneNumber').value,
             phoneNumber = "phoneNumber=" + phoneNum;
-          axios.post('http://47.99.155.46:8081/account/send',phoneNumber)
+          axios.post('/login/account/send',phoneNumber)
             .then(response => {
               console.log(response);
               if(response.data.status===1){

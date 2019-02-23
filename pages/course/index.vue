@@ -52,22 +52,29 @@
     </section>
 </template>
 <script>
-  let defaultUrl = 'http://localhost:8080/api/';
 import CourseList from '@/components/CourseList'
 import TeacherList from '@/components/TeacherList'
-import axios from 'axios';
 export default {
+  async asyncData({ $axios }) {
+    const latest = await $axios.get('/api/course/latest')
+    const elementrary = await $axios.get('/api/course/elementary')
+    const intermediate = await $axios.get('/api/course/intermediate')
+    const advanced = await $axios.get('/api/course/advanced')
+    const teacher = await $axios.get('/api/course/teacher/list')
+    const pics = await $axios.get('/api/carousel/course/list')
+    return {latest: latest, elementrary: elementrary, intermediate: intermediate, advanced: advanced, teacher: teacher, pics: pics}
+  },
   components: {
     CourseList,TeacherList
   },
   data () {
     return {
-      courseList1:getCourseDate(defaultUrl + 'course/latest'),
-      courseList2:getCourseDate(defaultUrl + 'course/elementary'),
-      courseList3:getCourseDate(defaultUrl + 'course/intermediate'),
-      courseList4:getCourseDate(defaultUrl + 'course/advanced'),
-      teacherList:getCourseDate(defaultUrl + 'course/teacher/list'),
-      slideshow:getCourseDate(defaultUrl + 'carousel/course/list')
+      latestList:[],
+      elementrary: [],
+      intermediate: [],
+      advanced: [],
+      teacher: [],
+      pics: []
     }
   },
   methods:{

@@ -68,12 +68,11 @@
 </template>
 
 <script>
-  import axios from 'axios';
   export default {
     async asyncData({$axios,params}){
-      const datum = await $axios.$get('http://localhost:8080/api/course/' + params.id);
+      const datum = await $axios.$get('/api/course/' + params.id);
       const courseChapterId = datum.body.courseChapterList[0].courseChapterId;
-      const details = await $axios.$get('http://localhost:8080/api/course/chapter/' + courseChapterId);
+      const details = await $axios.$get('/api/course/chapter/' + courseChapterId);
       return {courseInfo:datum.body,details:details.body,learnPoint:datum.body.courseChapterList[0].learnItem}
     },
     data() {
@@ -95,7 +94,7 @@
       },
       partChange(part,num){
         this.learnPoint = this.courseInfo.courseChapterList[num-1].learnItem;
-        let datum = axios('http://localhost:8080/api/course/chapter/' + part)
+        let datum = axios('/api/course/chapter/' + part)
           .then((data) => {
             this.details = data.data.body;
           })
