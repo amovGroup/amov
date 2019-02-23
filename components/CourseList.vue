@@ -30,8 +30,7 @@
         </h3>
         <div class="course-list">
             <el-row :gutter="20">
-                <el-col :span="6" v-for="item in list" :key="item.id" style="margin-top: 10px;margin-bottom: 10px;">
-                    <!--<a href="https://shop142114972.taobao.com/" target="_blank" style="text-decoration: none;">-->
+                <el-col :span="6" v-for="item in list" :key="item.courseId" style="margin-top: 10px;margin-bottom: 10px;">
                   <a :href="'/course/'+item.courseId" target="_blank" style="text-decoration: none;">
                         <el-card shadow="never" style="border: none;" :body-style="bodyStyle">
                             <div class="course-img">

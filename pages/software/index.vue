@@ -7,7 +7,7 @@
         <hr class="hr-line" size="10" />
         <div>
           <el-row :gutter="20">
-            <el-col :span="8" v-for="item in software" :key="item" style="margin-top: 10px;">
+            <el-col :span="8" v-for="item in software" :key="item.productId" style="margin-top: 10px;">
               <el-card>
                 <img :src="item.profileUrl" class="image">
                 <div style="padding: 14px;">

@@ -10,43 +10,40 @@
                             background-color="#545c64"
                             text-color="#fff"
                             active-text-color="#ffd04b">
-                            <el-menu-item index="1" class="course-banner" @click="slideshowChange(1)">
-                                <i class="el-icon-menu" ></i>
-                                <span slot="title">导航一</span>
+                            <el-menu-item index="1" class="course-banner" @click="setActiveItem(0)" ref="menuItemCourse0">
+                                <span slot="title">{{pics[0].title}}</span>
                             </el-menu-item>
-                            <el-menu-item index="2" class="course-banner" @click="slideshowChange(2)">
-                                <i class="el-icon-menu"></i>
-                                <span slot="title">导航二</span>
+                            <el-menu-item index="2" class="course-banner" @click="setActiveItem(1)" ref="menuItemCourse1">
+                                <span slot="title">{{pics[1].title}}</span>
                             </el-menu-item>
-                            <el-menu-item index="4" class="course-banner" @click="slideshowChange(3)">
-                                <i class="el-icon-setting"></i>
-                                <span slot="title">导航四</span>
+                            <el-menu-item index="3" class="course-banner" @click="setActiveItem(2)" ref="menuItemCourse2">
+                                <span slot="title">{{pics[2].title}}</span>
                             </el-menu-item>
                         </el-menu>
                     </div>
                     <div class="bk2">
-                        <el-carousel class="course-banner-carousel">
-                            <el-carousel-item v-for="(item,index) in slideshow" :key="item.carouselId" :id="'slideshow'+index" style="height:100%;" >
-                              <img :src="item.imageUrl" :alt="item.title">
+                        <el-carousel class="course-banner-carousel" @change="changeCarousel($event)" ref="carouselCourse">
+                            <el-carousel-item v-for="item in pics" :key="item.carouselId" style="height:100%;" >
+                              <a :href="item.destinationUrl" target="_blank"><img :src="item.imageUrl" :alt="item.title" class="course-carousel"></a>
                             </el-carousel-item>
                         </el-carousel>
                     </div>
                 </el-card>
             </div>
             <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="最新课程" :list="courseList1" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="1"></course-list>
+                <course-list title="最新课程" :list="latest" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="1"></course-list>
             </div>
             <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="初级课程" :list="courseList2" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="2"></course-list>
+                <course-list title="初级课程" :list="elementrary" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="2"></course-list>
             </div>
             <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="中级课程" :list="courseList3" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="3"></course-list>
+                <course-list title="中级课程" :list="intermediate" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="3"></course-list>
             </div>
             <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
-                <course-list title="高级课程" :list="courseList4" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="4"></course-list>
+                <course-list title="高级课程" :list="advanced" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="4"></course-list>
             </div>
             <div class="course-tutor">
-                <teacher-list :teacherList="teacherList"></teacher-list>
+                <teacher-list :teacherList="teacher"></teacher-list>
             </div>
         </div>
     </section>
@@ -55,21 +52,21 @@
 import CourseList from '@/components/CourseList'
 import TeacherList from '@/components/TeacherList'
 export default {
-  async asyncData({ $axios }) {
-    const latest = await $axios.get('/api/course/latest')
-    const elementrary = await $axios.get('/api/course/elementary')
-    const intermediate = await $axios.get('/api/course/intermediate')
-    const advanced = await $axios.get('/api/course/advanced')
-    const teacher = await $axios.get('/api/course/teacher/list')
-    const pics = await $axios.get('/api/carousel/course/list')
-    return {latest: latest, elementrary: elementrary, intermediate: intermediate, advanced: advanced, teacher: teacher, pics: pics}
-  },
   components: {
     CourseList,TeacherList
   },
+  async asyncData({ $axios }) {
+    const latest = await $axios.$get('/api/course/latest')
+    const elementrary = await $axios.$get('/api/course/elementary')
+    const intermediate = await $axios.$get('/api/course/intermediate')
+    const advanced = await $axios.$get('/api/course/advanced')
+    const teacher = await $axios.$get('/api/course/teacher/list')
+    const pics = await $axios.$get('/api/carousel/course/list')
+    return {latest: latest.body, elementrary: elementrary.body, intermediate: intermediate.body, advanced: advanced.body, teacher: teacher.body, pics: pics.body}
+  },
   data () {
     return {
-      latestList:[],
+      latest:[],
       elementrary: [],
       intermediate: [],
       advanced: [],
@@ -78,53 +75,32 @@ export default {
     }
   },
   methods:{
-    //左边按钮控制轮播图显示函数
-    slideshowChange(x){
-      let slideshow0 = document.getElementById('slideshow0'),
-        slideshow1 = document.getElementById('slideshow1'),
-        slideshow2 = document.getElementById('slideshow2');
-      switch (x) {
-        case 1:
-          slideshowTurn(slideshow0,slideshow1,slideshow2)
-          break;
-        case 2:
-          slideshowTurn(slideshow1,slideshow2,slideshow0);
-          break;
-        case 3:
-          slideshowTurn(slideshow2,slideshow0,slideshow1);
-          break;
+    setActiveItem(x) {
+      this.$refs.carouselCourse.setActiveItem(x)
+    },
+    changeCarousel(e) {
+      if(e == 0) {
+        this.$refs.menuItemCourse0.$el.click()
+      } else if (e == 1) {
+        this.$refs.menuItemCourse1.$el.click()
+      } else {
+        this.$refs.menuItemCourse2.$el.click()
       }
     }
   }
-}
-//左边按钮控制轮播图显示函数
-function slideshowTurn(x,y,z){
-    x.classList.add("is-active","is-animating");
-    y.classList.remove("is-active","is-animating");
-    z.classList.remove("is-active");x.classList.add("is-animating");
-    x.setAttribute("style","transform: translateX(0px) scale(1);height: 100%;");
-    y.setAttribute("style","transform: translateX(732px) scale(1);height: 100%;");
-    z.setAttribute("style","transform: translateX(-732px) scale(1);height: 100%;");
-}
-//封装axios函数，返回课程分类中需要的数据
-function getCourseDate(url){
-  let val = [];
-  axios(url)
-    .then(function(data){
-      let datum = data.data.body;
-      for(let k in datum){
-        val.push(datum[k])
-      }
-    })
-    .catch(function(error) {
-        console.log(error)
-    });
-  return val;
 }
 </script>
 
 
 <style>
+
+.course-carousel {  
+    width: auto;  
+    height: 31vw;  
+    max-width: 100%;  
+    max-height: 100%;     
+}
+
 .bk1 {
     background-color:aqua;
     height: 31vw;
