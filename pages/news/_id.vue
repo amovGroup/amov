@@ -9,7 +9,7 @@
               <span style="position: absolute;margin-left: 23vw;">作者：{{news.news.editorName}}</span>
               <span style="margin-left: 35vw;">发布时间：{{news.news.createTime}}</span>
             </div>
-            <pre class="news-content">{{news.newsInfo.body}}</pre>
+            <div v-html="news.newsInfo.body"></div>
           </el-card>
         </div>
       </div>
