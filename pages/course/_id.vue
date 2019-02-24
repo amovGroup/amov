@@ -94,9 +94,9 @@
       },
       partChange(part,num){
         this.learnPoint = this.courseInfo.courseChapterList[num-1].learnItem;
-        let datum = axios('/api/course/chapter/' + part)
+        var datum = this.$axios.$get('/api/course/chapter/' + part)
           .then((data) => {
-            this.details = data.data.body;
+            this.details = data.body;
           })
           .catch(function(error){
             console.log(error)

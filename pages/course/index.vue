@@ -30,16 +30,16 @@
                     </div>
                 </el-card>
             </div>
-            <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
+            <div id="latest" style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
                 <course-list title="最新课程" :list="latest" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="1"></course-list>
             </div>
-            <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
+            <div id="elementary" style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
                 <course-list title="初级课程" :list="elementrary" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="2"></course-list>
             </div>
-            <div style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
+            <div id="intermediate" style="background-color: #fff; padding-top: 20px; padding-bottom: 20px;">
                 <course-list title="中级课程" :list="intermediate" :bodyStyle="{padding: '0px', 'background-color':'#fff'}" :rank="3"></course-list>
             </div>
-            <div style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
+            <div id="advanced" style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;">
                 <course-list title="高级课程" :list="advanced" :bodyStyle="{padding: '0px', 'background-color':'#f0f0f0'}" :rank="4"></course-list>
             </div>
             <div class="course-tutor">

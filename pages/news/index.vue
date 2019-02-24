@@ -1,61 +1,12 @@
 <template>
   <section class="container">
     <div class="max-width">
-      <carousel-list :pics="pics" :index="3"></carousel-list>
       <div class="news-detail">
-        <el-row :gutter="50">
-          <el-col :span=6>
-            <div class="news-chapter">
-              <el-card :body-style="{ padding: '0px' }" >
-                <el-menu>
-                  <el-menu-item index="1" class="news-banner" @click="clickButton(1)">
-                              <span slot="title">
-                                  <el-button type="text">官方动态</el-button>
-                              </span>
-                  </el-menu-item>
-                  <el-menu-item index="1" class="news-banner" @click="clickButton(2)">
-                              <span slot="title">
-                                  <el-button type="text">线下培训</el-button>
-                              </span>
-                  </el-menu-item>
-                  <el-menu-item index="1" class="news-banner" @click="clickButton(3)">
-                              <span slot="title">
-                                  <el-button type="text">测试评价</el-button>
-                              </span>
-                  </el-menu-item>
-                </el-menu>
-              </el-card>
-            </div>
-          </el-col>
-          <el-col :span="18" style="display: block" id="part1">
-            <div class="partName">
-              <div>官方动态</div>
-              <div style="margin-top: 5px">Official dynamics</div>
-            </div>
-            <div class="partContent">
-              <dynamics-list :list="dynamicsList"></dynamics-list>
-            </div>
-          </el-col>
-          <el-col :span="18" style="display: none" id="part2">
-            <div class="partName">
-                <div>线下培训</div>
-                <div style="margin-top: 5px">Offline training</div>
-            </div>
-            <div class="partContent">
-              <dynamics-list :list="training"></dynamics-list>
-              <!--<news-list :list="trainingList" :bodyStyle="{padding: '0px', 'background-color':'#fff'}"></news-list>-->
-            </div>
-          </el-col>
-          <el-col :span="18" style="display: none" id="part3">
-            <div class="partName">
-              <div>测试评价</div>
-              <div style="margin-top: 5px">Test evaluation</div>
-            </div>
-            <div class="partContent">
-              <dynamics-list :list="evaluation"></dynamics-list>
-            </div>
-          </el-col>
-        </el-row>
+        <el-tabs tab-position="left" @tab-click="clickTab">
+          <el-tab-pane label="官方动态"><dynamics-list :list="dynamics"></dynamics-list></el-tab-pane>
+          <el-tab-pane label="线下培训"><dynamics-list :list="evaluation"></dynamics-list></el-tab-pane>
+          <el-tab-pane label="测试评价"><dynamics-list :list="training"></dynamics-list></el-tab-pane>
+  </el-tabs>
       </div>
     </div>
   </section>
@@ -72,58 +23,32 @@
       Logo, CarouselList, ProductList, NewsList, DynamicsList
     },
     async asyncData({ $axios }) {
-      const json = await $axios.$post('/api/carousel/list', {location: 0})
-      const image = await $axios.$get('/api/init/image')
-      const goods = await $axios.$get('/api/goods/list')
-      return { pics: json.body,image_url: image, goodsList:goods }
+      const dynamics = await $axios.$get('/api/news/dynamics?startPage=0&pageSize=10')
+      const evaluation = await $axios.$get('/api/news/evaluation?startPage=0&pageSize=10')
+      const training = await $axios.$get('/api/news/training?startPage=0&pageSize=10')
+      return { dynamics: dynamics.body.list, evaluation: evaluation.body.list, training: training.body.list}
     },
     data() {
       return {
-        dynamicsList:getDate('http://localhost:8080/api/news/dynamics'),
-        evaluation:getDate('http://localhost:8080/api/news/evaluation'),
-        training:getDate('http://localhost:8080/api/news/training')
+        dynamics: [],
+        evaluation: [],
+        training: []
       }
     },
     methods: {
-      clickButton(n){
-        let part1 = document.getElementById('part1'),
-          part2 = document.getElementById('part2'),
-          part3 = document.getElementById('part3');
-        switch (n) {
-          case 1:
-            clickButt(part1,part2,part3);
-            break;
-          case 2:
-            clickButt(part2,part3,part1);
-            break;
-          case 3:
-            clickButt(part3,part1,part2);
-            break;
+      clickTab(tab, event) {
+        //可能会加点东西
+        var name = event.target.innerText
+        var self = this
+        if(name === "线下培训") {
+          console.log(2)
+        } else if(name === "测试评价") {
+          console.log(3)
+        } else {
+          console.log(1)
         }
       }
-    },
-  }
-  //官方动态、线下培训、测试评价切换
-  function clickButt(x,y,z){
-    x.style.display = "block";
-    y.style.display = "none";
-    z.style.display = "none";
-  }
-  //获取官方动态、线下培训、测试评价具体内容
-  function getDate(url){
-    let val = [];
-    axios(url)
-      .then(function(data){
-        let datum = data.data.body;
-        for(let k in datum){
-          val.push(datum[k]);
-        }
-        console.log(val);
-      })
-      .catch(function(error) {
-        console.log(error)
-      });
-    return val;
+    }
   }
 </script>
 <style>

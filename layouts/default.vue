@@ -32,10 +32,10 @@
       <el-row :gutter="20">
         <el-col :span="6">
           <div class="footer-margin"><nuxt-link to="/course" class="foot-a">课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">推荐课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">初级课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">中级课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">高级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course#latest" class="foot-a">推荐课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course#elementary" class="foot-a">初级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course#intermediate" class="foot-a">中级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course#advanced" class="foot-a">高级课程</nuxt-link></div>
         </el-col>
         <el-col :span="6">
           <div class="footer-margin"><nuxt-link to="/news" class="foot-a">新闻</nuxt-link></div>
