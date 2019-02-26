@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/logo.ico' }
     ]
   },
 
@@ -55,8 +55,9 @@ module.exports = {
   },
 
   proxy: {
-    '/api/': { target: 'http://localhost:8080'},
-    '/login/': { target: 'http://localhost:8081'}
+    // '/api/': { target: 'http://127.0.0.1:8080'},
+    '/api/': { target: 'http://47.99.155.46:8080'},
+    '/login/': { target: 'http://47.99.155.46:8081'}
   },
   /*
   ** Build configuration
