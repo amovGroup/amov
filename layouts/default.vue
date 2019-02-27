@@ -15,7 +15,7 @@
         <el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/software" class="router-nav">软件</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/course" class="router-nav">课程</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item" index="6"><nuxt-link to="/news" class="router-nav">新闻</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="7"><nuxt-link to="/forum" class="router-nav">论坛</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item" index="7"><a href="http://bbs.amovauto.com" class="router-nav">论坛</a></el-menu-item>
         <el-menu-item class="nav-menu-item" index="8"><a href="https://shop142114972.taobao.com" target="_blank" class="router-nav">店铺</a></el-menu-item>
         <el-menu-item class="nav-menu-item" index="9"><nuxt-link to="/about" class="router-nav">关于我们</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item right-item" index="10" id="signUpMenu"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
