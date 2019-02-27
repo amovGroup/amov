@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import axios from "axios"
+import {get,post} from '~/plugins/axios'
   export default {
     data(){
       return {
@@ -154,11 +154,14 @@
             username = document.getElementById('username').value,
             password = document.getElementById('password').value,
             addDTO = {"age":0,"status":1,"password":password,"phoneNumber":phoneNum,"username":username};
-          axios.post('login/account/validate'+"?code="+authCode,addDTO)
+          post('account/validate'+"?code="+authCode,addDTO)
             .then(response =>{
               console.log(response);
               if(response.data.status === 1){
                 alert("注册成功，请登录");
+                if(this.$route.query.from){
+                  window.location.href = "/sign_in"+"?form="+encodeURIComponent(this.$route.query.from);
+                }
                 window.location.href = "/sign_in"
               }
               else{
@@ -180,7 +183,7 @@
           time(sendCode,wait);
           const phoneNum = document.getElementById('phoneNumber').value,
             phoneNumber = "phoneNumber=" + phoneNum;
-          axios.post('login/account/send',phoneNumber)
+          post('/login/account/send',phoneNumber)
             .then(response => {
               console.log(response);
               if(response.data.status===1){

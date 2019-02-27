@@ -33,6 +33,8 @@
 </template>
 
 <script>
+// import axios from '@nuxtjs/axios'
+import {get,post} from '~/plugins/axios'
   export default {
     data() {
       return {
@@ -82,11 +84,13 @@
         }
       },
       toSignUp() {
+        // console.log("111")
         const username = document.getElementById('username').value,
           password = document.getElementById('password').value,
           userInfo = { username: username, password: password };
         if (this.usernameStatus === 1 && this.passwordHave === 1) {
-          axios.post('login/account/sign-in', userInfo)
+          
+          post('/account/sign-in', userInfo)
             .then(response => {
               if(!window.localStorage){
                 alert("浏览器不支持localStorage！")
@@ -105,10 +109,26 @@
                   //将date设置为5天以后的时间
                   date.setTime(date.getTime()+expireDays*24*3600*1000);
                   //将userId和userName两个cookie设置为10天后过期
-                  document.cookie = "cache=" + cache + "; expires=" + date.toGMTString() + "; domain=amovauto.com; path=/";
-                  document.cookie = "username=" + username + "; expires=" + date.toGMTString() + "; domain=amovauto.com; path=/";
+                  document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
+                  document.cookie = "watch=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
+                  document.cookie = "username=" + username + "; expires=" + date + ""; //.toGMTString()
+                  console.log(this.$route.query.from)
                   alert("登录成功");
-                  window.location.reload()
+                  // return
+                  
+                  if(this.$route.query.from){
+                    let furl=decodeURIComponent(this.$route.query.from)
+                    console.log("论坛跳转"+furl)
+                    setTimeout(function(){window.location.href=furl}
+                       
+                    ,300)
+                   return
+                  }else{
+                    console.log("内部跳转")
+                    window.location.reload()
+                    // location.href="/"
+                  }
+                  
                 }
                 else{
                   alert("登录失败，"+response.data.msg);
