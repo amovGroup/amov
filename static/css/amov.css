@@ -579,6 +579,7 @@ img.image{
 #sign_up{
   height: 35vw;
   margin-top: 3.5vw;
+  min-height: 470px;
 }
 .logoBox{
   display: flex;
@@ -606,10 +607,10 @@ img.image{
 }
 #passwordTxt,#passwordAgain{
   position: absolute;
-  margin-left: 54px;
   font-size: 14px;
   margin-top: 25px;
   color: #777;
+  left: calc(67.2vw - 119px);
 }
 #passwordInput{
   margin-top: 20px;
@@ -627,7 +628,9 @@ img.image{
   font-size: 12px;
   font-weight: bold;
   text-decoration: none;
-  padding: 2px 3px;
+  left: calc(67.2vw - 126px);
+  margin-top: -12px;
+  position: absolute;
 }
 #sign_up .btnBox,#sign_in .btnBox{
   margin-top: 25px;
@@ -667,11 +670,10 @@ img.image{
   margin-top: 40px;
 }
 .sign_in_box .inputBox p.inputHint{
-  text-align: left;
-  margin-left: 53px;
   font-size: 12px;
   position: absolute;
   color: red;
+  left: calc(67.2vw - 119px);
 }
 #sendCode{
   padding: 0;
