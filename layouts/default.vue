@@ -12,14 +12,14 @@
         <el-menu-item class="nav-menu-item" index="1"><nuxt-link to="/"><img src="~/assets/logo/logo_white.png" alt="logo" class="logo"></nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item" index="2"><nuxt-link to="/" class="router-nav">首页</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item" index="3"><nuxt-link to="/product" class="router-nav">产品</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/software" class="router-nav">软件</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/course" class="router-nav">课程</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="6"><nuxt-link to="/news" class="router-nav">新闻</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="7"><nuxt-link to="/forum" class="router-nav">论坛</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="8"><a href="https://shop142114972.taobao.com" target="_blank" class="router-nav">店铺</a></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="9"><nuxt-link to="/about" class="router-nav">关于我们</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item right-item" index="10" id="signUpMenu"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item right-item" index="11" id="signInMenu"><nuxt-link to="/sign_in" class="router-nav">登录</nuxt-link></el-menu-item>
+        <!--<el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/software" class="router-nav">软件</nuxt-link></el-menu-item>-->
+        <!--<el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/course" class="router-nav">课程</nuxt-link></el-menu-item>-->
+        <el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/news" class="router-nav">新闻</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/forum" class="router-nav">论坛</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item" index="6"><a href="https://shop142114972.taobao.com" target="_blank" class="router-nav">店铺</a></el-menu-item>
+        <el-menu-item class="nav-menu-item" index="7"><nuxt-link to="/about" class="router-nav">关于我们</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item right-item" index="8" id="signUpMenu"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item right-item" index="9" id="signInMenu"><nuxt-link to="/sign_in" class="router-nav">登录</nuxt-link></el-menu-item>
         <ul id="mainMenuUl">
           <li style="margin-right: 20px"><a href="javascript:;" title="用户名">{{cookiesInfo}}</a></li>
           <li style="margin-right: 5px"><a href="javascript:;" style="text-decoration: none" title="退出登录" @click="openModal">退出登录</a></li>

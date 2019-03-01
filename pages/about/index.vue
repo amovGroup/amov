@@ -7,14 +7,9 @@
           <div class="bk-bottom"></div>
         </div>
         <div class="about-card">
-          <el-card>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Ullam, reiciendis? Molestiae ex magni quas, aspernatur error,
-            sapiente facilis expedita provident cum dignissimos odio obcaecati
-            natus officiis nesciunt. Corporis voluptas assumenda dolorum adipisci
-            nulla natus voluptates repellendus aliquid minus hic iusto culpa vitae,
-            cupiditate ad nesciunt aliquam voluptatibus maxime deleniti 
-            dolorem nobis distinctio nihil! Expedita eos quidem accusantium ullam repudiandae!
+          <el-card style="text-align: left;text-indent: 2em">
+            阿木实验室，让研发更高效！当前，我们致力于为广大研究所，高校，初创公司团队提供前沿技术培训，研发型社区打造，以及硬件研发平台。从2016年开始，先后在全国举办线下培训超过60场，培训人数超1000人，覆盖行业内高价值人群5000人以上。与中国科学技术研究院，北京航空航天大学，西北工业大学，国防科技大学建立了广泛的技术培训及业务联系。
+            2019年，我们将重新杨帆启航，隆重推出无人机大课程，高端视觉无人机P100以及Reactor飞控等重量级产品，敬请期待！
           </el-card>
         </div>
       </div>
