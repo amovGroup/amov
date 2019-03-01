@@ -32,7 +32,7 @@
       return {
         dynamics: [],
         evaluation: [],
-        // training: [],
+        // training: []
       }
     },
     methods: {
