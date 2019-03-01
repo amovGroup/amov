@@ -15,7 +15,7 @@
       <div class="textBox">
         <ul>
           <li><a href="/sign_up">注册</a></li>
-          <li style="margin-left: 160px;"><a href="">忘记密码？</a></li>
+          <li style="margin-left: 160px;"><a href="" style="left: calc(67.2vw + 71px);">忘记密码？</a></li>
         </ul>
       </div>
       <div class="btnBox">
