@@ -183,7 +183,7 @@ import {get,post} from '~/plugins/axios'
           time(sendCode,wait);
           const phoneNum = document.getElementById('phoneNumber').value,
             phoneNumber = "phoneNumber=" + phoneNum;
-          post('/login/account/send',phoneNumber)
+          post('account/send',phoneNumber)
             .then(response => {
               console.log(response);
               if(response.data.status===1){
