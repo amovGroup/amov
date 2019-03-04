@@ -1,6 +1,7 @@
 .max-width {
   width: 100%;
   background-color: #fff;
+  margin-bottom: 50px;
 }
 
 .hardware,
@@ -194,6 +195,7 @@
 
 .intro {
   height: 42vw;
+  margin-top: 50px;
 }
 
 .title {

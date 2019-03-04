@@ -15,7 +15,7 @@
         <!--<el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/software" class="router-nav">软件</nuxt-link></el-menu-item>-->
         <!--<el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/course" class="router-nav">课程</nuxt-link></el-menu-item>-->
         <el-menu-item class="nav-menu-item" index="4"><nuxt-link to="/news" class="router-nav">新闻</nuxt-link></el-menu-item>
-        <el-menu-item class="nav-menu-item" index="5"><nuxt-link to="/forum" class="router-nav">论坛</nuxt-link></el-menu-item>
+        <el-menu-item class="nav-menu-item" index="5"><a href="http://bbs.amovauto.com/" target="_blank" class="router-nav">论坛</a></el-menu-item>
         <el-menu-item class="nav-menu-item" index="6"><a href="https://shop142114972.taobao.com" target="_blank" class="router-nav">店铺</a></el-menu-item>
         <el-menu-item class="nav-menu-item" index="7"><nuxt-link to="/about" class="router-nav">关于我们</nuxt-link></el-menu-item>
         <el-menu-item class="nav-menu-item right-item" index="8" id="signUpMenu"><nuxt-link to="/sign_up" class="router-nav">注册</nuxt-link></el-menu-item>
@@ -31,20 +31,23 @@
     <div class="footer">
       <el-row :gutter="20">
         <el-col :span="6">
-          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">课程</nuxt-link></div>
+          <div>
+            <p>&nbsp;</p>
+          </div>
+<!--          <div class="footer-margin"><nuxt-link to="/course" class="foot-a">课程</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/course#latest" class="foot-a">推荐课程</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/course#elementary" class="foot-a">初级课程</nuxt-link></div>
           <div class="footer-margin"><nuxt-link to="/course#intermediate" class="foot-a">中级课程</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/course#advanced" class="foot-a">高级课程</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/course#advanced" class="foot-a">高级课程</nuxt-link></div>-->
         </el-col>
         <el-col :span="6">
           <div class="footer-margin"><nuxt-link to="/news" class="foot-a">新闻</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">官方动态</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">线下培训</nuxt-link></div>
-          <div class="footer-margin"><nuxt-link to="/" class="foot-a">测试培训</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/news" class="foot-a">官方动态</nuxt-link></div>
+          <div class="footer-margin"><nuxt-link to="/news#evaluation" class="foot-a">线下培训</nuxt-link></div>
+          <!--<div class="footer-margin"><nuxt-link to="/" class="foot-a">测试培训</nuxt-link></div>-->
         </el-col>
         <el-col :span="6">
-          <div class="footer-margin"><nuxt-link to="/forum" class="foot-a">论坛</nuxt-link></div>
+          <div class="footer-margin"><a href="http://bbs.amovauto.com/" target="_blank" class="foot-a">论坛</a></div>
         </el-col>
         <el-col :span="6">
           <div class="footer-margin">联系方式</div>

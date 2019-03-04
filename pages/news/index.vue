@@ -32,7 +32,7 @@
       return {
         dynamics: [],
         evaluation: [],
-        // training: []
+        // training: [],
       }
     },
     methods: {
@@ -47,6 +47,11 @@
           console.log(1)
         }
       }
-    }
+    },
+/*    beforeMount:function () {
+      if(window.location.hash == "evaluation"){
+
+      }
+    }*/
   }
 </script>
