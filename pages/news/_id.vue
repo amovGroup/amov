@@ -33,20 +33,5 @@
   }
 </script>
 <style>
-  .news-title{
-    font-size: 26px;
-    font-weight: bold;
-  }
-  .news-info{
-    margin: 15px auto;
-    font-size: 14px;
-    text-align: left;
-  }
-  .news-content{
-    text-align: left;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    padding: 10px 20px;
-    line-height: 26px;
-  }
+
 </style>

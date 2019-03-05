@@ -1,6 +1,7 @@
 .max-width {
   width: 100%;
   background-color: #fff;
+  margin-bottom: 50px;
 }
 
 .hardware,
@@ -194,6 +195,7 @@
 
 .intro {
   height: 42vw;
+  margin-top: 50px;
 }
 
 .title {
@@ -575,6 +577,7 @@ img.image{
   border-radius: 7px;
   background-color: white;
   text-align: center;
+  min-width: 300px;
 }
 #sign_up{
   height: 35vw;
@@ -777,3 +780,312 @@ img.image{
   margin: 0 35px;
 }
 /*模态框end*/
+/*新闻页start*/
+.newsList{
+  width: 16.5vw;
+}
+.news-img{
+  border-radius: 7px 7px 0 0;
+  width: 100%;
+}
+.outBox{
+  box-shadow: 0 0 15px #969595;
+  border-radius: 7px;
+}
+.newsList .textBox{
+  padding: 10px 0 15px;
+}
+.dynamicsList .imgBox{
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 180px;
+}
+.dynamicsList .dynamics-img{
+  width: 170px;
+  height: 120px;
+}
+.dynamicsList .textBox {
+  width: calc(100% - 200px);
+  margin-left: 200px;
+  height: 135px;
+  font-size: 12px;
+  display: -webkit-box;
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  /* autoprefixer: on */
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  padding-top: 10px;
+}
+.dynamicsList .textBox>p{
+  line-height: 20px;
+}
+.dynamicsList .btnBox{
+  padding-bottom: 10px;
+  width: calc(100% - 200px);
+  margin: 0;
+  margin-left: 200px;
+  padding-top: 10px;
+}
+.dynamicsList .urlBtn{
+  width: 85px;
+  height: 25px;
+  border: 0;
+  border-radius: 13px;
+  background-color: #5175EA;
+  color: white;
+  margin-left: calc(100% - 110px);
+  cursor: pointer;
+  padding-top: 0;
+}
+.news-title{
+  font-size: 26px;
+  font-weight: bold;
+}
+.news-info{
+  margin: 15px auto;
+  font-size: 14px;
+  text-align: left;
+}
+.news-content{
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 10px 20px;
+  line-height: 26px;
+}
+/*新闻页end*/
+/*logo.vue start*/
+.VueToNuxtLogo {
+  display: inline-block;
+  animation: turn 2s linear forwards 1s;
+  transform: rotateX(180deg);
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  width: 245px;
+}
+
+.Triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+.Triangle--one {
+  border-left: 105px solid transparent;
+  border-right: 105px solid transparent;
+  border-bottom: 180px solid #41b883;
+}
+
+.Triangle--two {
+  top: 30px;
+  left: 35px;
+  animation: goright 0.5s linear forwards 3.5s;
+  border-left: 87.5px solid transparent;
+  border-right: 87.5px solid transparent;
+  border-bottom: 150px solid #3b8070;
+}
+
+.Triangle--three {
+  top: 60px;
+  left: 35px;
+  animation: goright 0.5s linear forwards 3.5s;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 120px solid #35495e;
+}
+
+.Triangle--four {
+  top: 120px;
+  left: 70px;
+  animation: godown 0.5s linear forwards 3s;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 60px solid #fff;
+}
+
+@keyframes turn {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes godown {
+  100% {
+    top: 180px;
+  }
+}
+
+@keyframes goright {
+  100% {
+    left: 70px;
+  }
+}
+/*logo.vue end*/
+/*course strat*/
+.course-carousel {
+  width: auto;
+  height: 31vw;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.bk1 {
+  background-color:aqua;
+  height: 31vw;
+  width: 13vw;
+  float: left;
+  max-width: 240px;
+}
+.bk2 {
+  /*background-color: brown;*/
+  height: 31vw;
+  float: left;
+  width: calc(100% - 13vw);
+
+}
+.course-banner {
+  height: calc(100% / 3);
+}
+
+.course-banner-menu {
+  height:100%;
+}
+
+.course-banner-carousel {
+  height: 31vw;
+  z-index: 0;
+}
+
+.course-img {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  width: 100%;
+  height: calc(50vw / 4);
+}
+.course-name, .course-class, .course-price, .course-note {
+  text-align: left;
+  font-family: MicrosoftYaHei;
+  font-weight: normal;
+  font-stretch: normal;
+  padding: 5px;
+}
+
+.course-name {
+  font-size: 18px;
+  letter-spacing: 0.9px;
+  color: #333333;
+}
+
+.course-class {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  color: #666666;
+}
+
+.course-price {
+  font-size: 18px;
+  letter-spacing: 0.9px;
+  /*color: #ee3617;*/
+}
+
+.course-note {
+  font-size: 14px;
+  letter-spacing: 0.7px;
+  color: #666666;
+}
+
+
+.card {
+  max-height: 600px;
+  border-radius: 20px;
+}
+.el-card__body{
+  overflow: hidden !important;
+}
+.el-carousel__item>img{
+  width: 100%;
+  height: 100%;
+}
+/*course end*/
+/*product start*/
+.platform-inst,
+.platform-pic {
+  float: left;
+  min-height: 16vw;
+}
+
+.platform-inst {
+  width: 66.66%;
+}
+
+.platform-pic {
+  width: 33.34%;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.product-subtitle,
+.product-title {
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: normal;
+  font-stretch: normal;
+  color: #333333;
+  text-align: left;
+}
+
+.product-title {
+  font-size: 1.25vw;
+  letter-spacing: 0.06vw;
+  line-height: 3vw;
+}
+
+.product-subtitle {
+  font-size: 0.94vw;
+  letter-spacing: 0.05vw;
+}
+
+.inst-hr {
+  height: 1px;
+  width: 30%;
+  background-color: #d6d6d6;
+  border: #d6d6d6 1px solid;
+  margin: 1vw 0 1vw 0;
+}
+
+.inst-gene {
+  font-family: MicrosoftYaHei;
+  font-size: 0.83vw;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0.04vw;
+  color: #333333;
+}
+
+.inst-cash {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.56vw;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 3.03vw;
+  letter-spacing: 0.08vw;
+  color: #ee3617;
+}
+
+.inst-purchase {
+  float: right;
+}
+
+.video-size {
+  width: 100%;
+  height: 33vw;
+}
+/*product end*/
