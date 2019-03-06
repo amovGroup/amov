@@ -55,10 +55,8 @@ module.exports = {
   },
 
   proxy: {
-    // '/api/': { target: 'http://localhost:8080'},
-    // '/login/': { target: 'http://localhost:8081'}
-    '/api/': { target: 'http://www.amovauto.com:8080'},
-    '/login/': { target: 'http://www.amovauto.com:8081'}
+    '/api/': { target: 'http://localhost:8080'},
+    '/login/': { target: 'http://localhost:8081'}
   },
   /*
   ** Build configuration

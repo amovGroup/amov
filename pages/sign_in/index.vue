@@ -83,7 +83,6 @@
         }
       },
       toSignUp() {
-        // console.log("111")
         const username = document.getElementById('username').value,
           password = document.getElementById('password').value,
           userInfo = { username: username, password: password };
@@ -113,7 +112,7 @@
                   console.log(this.$route.query.from)
                   alert("登录成功");
                   // return
-                  
+
                   if(this.$route.query.from){
                     let furl=decodeURIComponent(this.$route.query.from)
                     console.log("论坛跳转"+furl)
@@ -126,7 +125,7 @@
                     window.location.reload()
                     // location.href="/"
                   }
-                  
+
                 }
                 else{
                   alert("登录失败，"+response.data.msg);
