@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  import axios from "axios"
+// import {get,post} from '~/plugins/axios'
   export default {
     data(){
       return {
@@ -159,6 +159,9 @@
               console.log(response);
               if(response.data.status === 1){
                 alert("注册成功，请登录");
+                if(this.$route.query.from){
+                  window.location.href = "/sign_in"+"?form="+encodeURIComponent(this.$route.query.from);
+                }
                 window.location.href = "/sign_in"
               }
               else{
@@ -173,7 +176,6 @@
         }
       },
       clickSendCode(){
-        console.log(this.clickTimes++)
         let wait = 60;
         const sendCode = document.getElementById("sendCode");
         if(this.phoneNumStatus === 1){
