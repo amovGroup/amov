@@ -3,7 +3,7 @@
     <div class="max-width">
       <carousel-list :pics="pics" :index="1"></carousel-list>
       <div class="hardware">
-        <h3>硬件平台</h3>
+        <h3>视频教程</h3>
         <hr class="hr-line" size="10" />
         <product-list :productList="hardware"></product-list>
       </div>
