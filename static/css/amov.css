@@ -39,11 +39,11 @@
   z-index: -1;
 }
 
-.product-abstract-hover {
+/*.product-abstract-hover {
   position: absolute;
   background-color: #0d297f;
   z-index: 2018;
-}
+}*/
 
 .product-card, .product-abstract {
   height: 25vw;

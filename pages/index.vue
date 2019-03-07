@@ -22,12 +22,8 @@ export default {
     GoodsList
   },
   async asyncData({ $axios }) {
-    // console.log("测试1")
-    const json = await $axios.$post('/api/carousel/list')// {location: 0}、
-    // const json = await $axios.$post('/account/sign-in')
-    // console.log("测试2")
-    const image = await $axios.$get('/api/init/image')
-    // const goods = await $axios.$get('/api/goods/list')
+    const json = await $axios.$post('/api/carousel/list');
+    const image = await $axios.$get('/api/init/image');
     return { pics: json.body, image_url: image }
   },
   data() {
