@@ -20,7 +20,7 @@
 </template>
 
 <script>
-// import {get,post} from '~/plugins/axios'
+import {get,post} from '~/plugins/axios'
   export default {
     name: 'quitLoginModal',
     data () {
@@ -42,12 +42,14 @@
           jsonCookie[arr[0]] =arr[1];
         });
         const cookies = jsonCookie.cache
-        axios.post('login/account/logout',cookies)
+        // post('account/logout',cookies)
+        post('account/logout',cookies)
           .then(response => {
             console.log(response)
             if(response.data.status === 3){
               setCookie("cache", ' ', -1);
               setCookie("username", ' ', -1);
+              setCookie("watch", ' ', -1);
               alert("退出登录成功");
               window.location.reload();
             }
@@ -61,11 +63,30 @@
       }
     }
   }
+  // function  setCookie(name, value, day) {
+  //   if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
+  //     const expires = day * 24 * 60 * 60 * 1000;
+  //     const date = new Date(+new Date()+expires);
+  //     document.cookie = name + "=" + escape(value) + ";expires=" + date;//.toUTCString();
+  //     console.log(date)
+  //   }else{
+  //     document.cookie = name + "=" + escape(value);
+  //   }
+  // }
   function  setCookie(name, value, day) {
+    const expires = day * 24 * 60 * 60 * 1000;
+      const date = new Date(+new Date().valueOf()+expires);
+    if(day <0){
+      if(name=="watch" || name=="cache"){
+        document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
+        return
+      }
+      document.cookie = name + "=" + escape(value) + "; expires= "+date;
+      return
+    }
     if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
-      const expires = day * 24 * 60 * 60 * 1000;
-      const date = new Date(+new Date()+expires);
-      document.cookie = name + "=" + escape(value) + ";expires=" + date.toUTCString();
+      
+      document.cookie = name + "=" + escape(value) + "; expires=" + date;
     }else{
       document.cookie = name + "=" + escape(value);
     }

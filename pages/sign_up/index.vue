@@ -42,7 +42,7 @@
 </template>
 
 <script>
-// import {get,post} from '~/plugins/axios'
+import {get,post} from '~/plugins/axios'
   export default {
     data(){
       return {
@@ -154,7 +154,7 @@
             username = document.getElementById('username').value,
             password = document.getElementById('password').value,
             addDTO = {"age":0,"status":1,"password":password,"phoneNumber":phoneNum,"username":username};
-          axios.post('login/account/validate'+"?code="+authCode,addDTO)
+          post('account/validate'+"?code="+authCode,addDTO)
             .then(response =>{
               console.log(response);
               if(response.data.status === 1){
@@ -178,9 +178,10 @@
         const sendCode = document.getElementById("sendCode");
         if(this.phoneNumStatus === 1){
           time(sendCode,wait);
-          const phoneNum = document.getElementById('phoneNumber').value,
-            phoneNumber = "phoneNumber=" + phoneNum;
-          axios.post('login/account/send',phoneNumber)
+          const phoneNum = document.getElementById('phoneNumber').value;
+            // phoneNumber = "phoneNumber=" + phoneNum;
+
+          post('account/send?phoneNumber='+phoneNum,{})
             .then(response => {
               console.log(response);
               if(response.data.status===1){
