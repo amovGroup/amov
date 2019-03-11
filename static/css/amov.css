@@ -779,6 +779,20 @@ img.image{
   cursor: pointer;
   margin: 0 35px;
 }
+.forgotModal .modal{
+  height: 350px;
+}
+.forgotModal .modal-body{
+  padding-bottom: 0;
+}
+.forgotModal .modal-body img{
+  margin-top: 20px;
+}
+.forgotModal .modal-footer{
+  text-align: center;
+  padding: 0 49px;
+}
+
 /*模态框end*/
 /*新闻页start*/
 .newsList{

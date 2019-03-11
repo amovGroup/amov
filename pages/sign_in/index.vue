@@ -15,7 +15,7 @@
       <div class="textBox">
         <ul>
           <li><a href="/sign_up">注册</a></li>
-          <li style="margin-left: 160px;"><a href="" style="left: calc(67.2vw + 71px);">忘记密码？</a></li>
+          <li style="margin-left: 160px;"><a href="javascript:;" style="left: calc(67.2vw + 71px);" @click="openModal">忘记密码？</a></li>
         </ul>
       </div>
       <div class="btnBox">
@@ -29,20 +29,32 @@
         </div>
       </div>-->
     </form>
+    <ForgotModal v-show="isModalVisible" @close="closeModal" />
   </div>
 </template>
 
 <script>
 import {get,post} from '~/plugins/axios'
+import ForgotModal from '@/components/ForgotModal'
   export default {
+    components: {
+      ForgotModal
+    },
     data() {
       return {
         //-1为初始状态或点击输入框时，0为账号错误/密码输入框为空，1为账号正确/密码输出入框不为空
         //-1和1不显示提示
-        usernameStatus: -1, passwordHave: -1
+        usernameStatus: -1, passwordHave: -1,
+        isModalVisible:false
       }
     },
     methods: {
+      openModal:function (){
+        this.isModalVisible = true
+      },
+      closeModal: function () {
+        this.isModalVisible = false
+      },
       usernameOnfocus() {
         const username = document.getElementById('username');
         this.usernameStatus = -1;
