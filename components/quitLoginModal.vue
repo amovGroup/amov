@@ -36,20 +36,17 @@ import {get,post} from '~/plugins/axios'
       quitLogin() {
         let cookie = document.cookie.replace(/\s+/g,"");
         let cookieArr = cookie.split(";");
-        let jsonCookie = {}
+        let jsonCookie = {};
         cookieArr.forEach((i) => {
           let arr = i.split("=");
           jsonCookie[arr[0]] =arr[1];
         });
-        const cookies = jsonCookie.cache
-        // post('account/logout',cookies)
+        const cookies = jsonCookie.cache;
         post('account/logout',cookies)
           .then(response => {
-            console.log(response)
             if(response.data.status === 3){
-              setCookie("cache", ' ', -1);
               setCookie("username", ' ', -1);
-              setCookie("watch", ' ', -1);
+              setCookie("cache", ' ', -1);
               alert("退出登录成功");
               window.location.reload();
             }
@@ -63,24 +60,16 @@ import {get,post} from '~/plugins/axios'
       }
     }
   }
-  // function  setCookie(name, value, day) {
-  //   if(day !== 0){     //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
-  //     const expires = day * 24 * 60 * 60 * 1000;
-  //     const date = new Date(+new Date()+expires);
-  //     document.cookie = name + "=" + escape(value) + ";expires=" + date;//.toUTCString();
-  //     console.log(date)
-  //   }else{
-  //     document.cookie = name + "=" + escape(value);
-  //   }
-  // }
+
   function  setCookie(name, value, day) {
     const expires = day * 24 * 60 * 60 * 1000;
       const date = new Date(+new Date().valueOf()+expires);
     if(day <0){
-      if(name=="watch" || name=="cache"){
-        document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
-        return
-      }
+      // if(name=="watch" || name=="cache"){
+      //   document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
+      //   document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
+      //   return
+      // }
       document.cookie = name + "=" + escape(value) + "; expires= "+date;
       return
     }

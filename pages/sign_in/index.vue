@@ -6,8 +6,8 @@
       </div>
       <h3>登&nbsp;&nbsp;&nbsp;录</h3>
       <div class="inputBox">
-        <input type="text" @focus="usernameOnfocus()" @blur="phoneNumOnblur()" value="请输入手机号" id="username" autocomplete="off">
-        <p class="inputHint" v-if="!usernameStatus">请输入正确的手机号</p>
+        <input type="text" @focus="usernameOnfocus()" @blur="phoneNumOnblur()" value="用户名或手机号" id="username" autocomplete="off">
+        <p class="inputHint" v-if="!usernameStatus">请输入用户名或手机号</p>
         <p id="passwordTxt">密码</p>
         <input type="password" id="password" @focus="passwordOnfocus()" @blur="passwordOnblur()" value="" autocomplete="off">
         <p class="inputHint" v-if="!passwordHave">密码应为6-18位字母或数字</p>
@@ -58,7 +58,7 @@ import ForgotModal from '@/components/ForgotModal'
       usernameOnfocus() {
         const username = document.getElementById('username');
         this.usernameStatus = -1;
-        if (username.value == '请输入手机号') {
+        if (username.value == '用户名或手机号') {
           username.value = '';
         }
       },
@@ -71,7 +71,7 @@ import ForgotModal from '@/components/ForgotModal'
           this.usernameStatus = 1
         }*/
         if (username.value == '') {
-          username.value = '请输入手机号'
+          username.value = '用户名或手机号'
         } else {
           //替换手机号验证
           this.usernameStatus = 1;
@@ -101,47 +101,44 @@ import ForgotModal from '@/components/ForgotModal'
         if (this.usernameStatus === 1 && this.passwordHave === 1) {
           post('account/sign-in', userInfo)
             .then(response => {
-              if(!window.localStorage){
-                alert("浏览器不支持localStorage！")
+              if(response.data.status === 2){
+                let cache = response.data.data;
+                post('account/current',{},{headers:{"Authorization":cache}})
+                  .then(response => {
+                    if(response.data.status === 1){
+                      //设置cookies
+                      let date=new Date();
+                      let expireDays=14;
+                      date.setTime(date.getTime()+expireDays*24*3600*1000);
+                      // document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
+                      document.cookie = "cache=" + cache + "; expires=" + date + "";
+                      document.cookie = "username=" + response.data.data.username + "; expires=" + date + "";
+                      console.log(this.$route.query.from)
+                      alert("登录成功");
+                      // return
+
+                      if(this.$route.query.from){
+                        let furl=decodeURIComponent(this.$route.query.from)
+                        console.log("论坛跳转"+furl)
+                        setTimeout(function(){window.location.href=furl}
+
+                          ,300)
+                        return
+                      }else{
+                        console.log("内部跳转")
+                        // window.location.reload()
+                        location.href="/"
+                      }
+                    }else{
+                      console.log(response)
+                    }
+                  })
+                  .catch(error =>{
+                    console.log(error)
+                  });
               }
-              else {
-                console.log(response);
-                if(response.data.status === 2){
-                  // let storage = window.localStorage;
-                  let cache = response.data.data;
-                  //设置localstorage
-                  // storage.setItem("data",cache);
-                  // storage.setItem("username",username);
-                  //设置cookies
-                  let date=new Date();
-                  let expireDays=14;
-                  //将date设置为5天以后的时间
-                  date.setTime(date.getTime()+expireDays*24*3600*1000);
-                  //将userId和userName两个cookie设置为10天后过期
-                  document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
-                  document.cookie = "watch=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
-                  document.cookie = "username=" + username + "; expires=" + date + ""; //.toGMTString()
-                  console.log(this.$route.query.from)
-                  alert("登录成功");
-                  // return
-
-                  if(this.$route.query.from){
-                    let furl=decodeURIComponent(this.$route.query.from)
-                    console.log("论坛跳转"+furl)
-                    setTimeout(function(){window.location.href=furl}
-
-                    ,300)
-                   return
-                  }else{
-                    console.log("内部跳转")
-                    // window.location.reload()
-                    location.href="/"
-                  }
-
-                }
-                else{
-                  alert("登录失败，"+response.data.msg);
-                }
+              else{
+                alert("登录失败，"+response.data.msg);
               }
             })
             .catch(error => {
