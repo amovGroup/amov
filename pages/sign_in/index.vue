@@ -106,7 +106,7 @@ import ForgotModal from '@/components/ForgotModal'
                 let date=new Date();
                 let expireDays=14;
                 date.setTime(date.getTime()+expireDays*24*3600*1000);
-                document.cookie = "cache=" + cache + "; expires=" + date + "";
+                document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
                 post('account/current',{})//,{"Authorization":cache}
                   .then(response => {
                     if(response.data.status === 1){
@@ -115,7 +115,7 @@ import ForgotModal from '@/components/ForgotModal'
                       // let expireDays=14;
                       // date.setTime(date.getTime()+expireDays*24*3600*1000);
                       // document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
-                      document.cookie = "cache=" + cache + "; expires=" + date + "";
+                      document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
                       document.cookie = "username=" + response.data.data.username + "; expires=" + date + "";
                       console.log(this.$route.query.from)
                       alert("登录成功");

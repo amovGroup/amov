@@ -65,11 +65,11 @@ import {get,post} from '~/plugins/axios'
     const expires = day * 24 * 60 * 60 * 1000;
       const date = new Date(+new Date().valueOf()+expires);
     if(day <0){
-      // if(name=="watch" || name=="cache"){
-      //   document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
-      //   document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
-      //   return
-      // }
+      if(name=="watch" || name=="cache"){
+        document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
+        //document.cookie = name + "=" + escape(value) + "; expires= "+date+"; domain=.amovauto.com; path=/";
+        return
+      }
       document.cookie = name + "=" + escape(value) + "; expires= "+date;
       return
     }
