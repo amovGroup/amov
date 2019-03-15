@@ -103,13 +103,17 @@ import ForgotModal from '@/components/ForgotModal'
             .then(response => {
               if(response.data.status === 2){
                 let cache = response.data.data;
-                post('account/current',{},{headers:{"Authorization":cache}})
+                let date=new Date();
+                let expireDays=14;
+                date.setTime(date.getTime()+expireDays*24*3600*1000);
+                document.cookie = "cache=" + cache + "; expires=" + date + "";
+                post('account/current',{})//,{"Authorization":cache}
                   .then(response => {
                     if(response.data.status === 1){
                       //设置cookies
-                      let date=new Date();
-                      let expireDays=14;
-                      date.setTime(date.getTime()+expireDays*24*3600*1000);
+                      // let date=new Date();
+                      // let expireDays=14;
+                      // date.setTime(date.getTime()+expireDays*24*3600*1000);
                       // document.cookie = "cache=" + cache + "; expires=" + date + "; domain=.amovauto.com; path=/";
                       document.cookie = "cache=" + cache + "; expires=" + date + "";
                       document.cookie = "username=" + response.data.data.username + "; expires=" + date + "";
