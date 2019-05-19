@@ -1,0 +1,59 @@
+.writeInfoPage{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    .headerImage{
+        width: 100vw;
+        height: 51.0667vw;
+        background: #ddd;
+    }
+    .infoBox{
+        width: 100vw;
+        padding: 0 10vw 0 10vw;
+        .tagWord{
+            color: #a9a9a9;
+            font-size: 4.1333vw;
+            margin-top: 2.8vw;
+            margin-left: 3.4667vw;
+            text-align: left;
+        }
+        .title{
+            color: #575757;
+            font-size: 6.4vw;
+            margin-top: 2.8vw;
+            margin-left: 3.4667vw;
+            font-weight: bold;
+            text-align: left;
+        }
+        .selectType{
+            width: 80vw;
+            height: 11.6vw !important;
+            font-size: 4.1333vw;
+            border: 1px solid #d6d6d6;
+            border-radius: 3.7333vw;
+            margin-top: 4.4vw;
+            padding-left: 4.8vw;
+        }
+        input{
+            width: 80vw;
+            height: 11.6vw;
+            border: 1px solid #d6d6d6;
+            border-radius: 3.7333vw;
+            margin-top: 4.4vw;
+            padding-left: 4.8vw;
+        }
+        .registerButton{
+            width: 80vw;
+            height: 11.6vw;
+            background: #00a0e9;
+            border-radius: 3.7333vw;
+            color: #fff;
+            margin-top: 4.6667vw;
+        }
+        .toLogin{
+            font-size: 3.7333vw;
+            color: #00a0e9;
+            margin-top: 4.2667vw;
+        }
+    }
+}

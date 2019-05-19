@@ -10,7 +10,7 @@ module.exports = {
     title: pkg.name,
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -28,7 +28,8 @@ module.exports = {
   */
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '@/static/css/amov.css'
+    '@/static/css/amov.css',
+    'swiper/dist/css/swiper.css'
   ],
 
   /*
@@ -36,7 +37,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/axios'
+    '@/plugins/axios',
+    { src: '~/plugins/vue-swiper.js', ssr: false },
   ],
 
   /*

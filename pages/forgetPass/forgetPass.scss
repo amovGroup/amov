@@ -1,0 +1,108 @@
+.forgetPassPage{
+    display: flex;
+    flex-direction: column;
+    .headerImage{
+        width: 17.6vw;
+        height: 17.6vw;
+        background: #00A0E9;
+        margin-top: 19.0667vw;
+        margin-left: 41.2vw;
+        border-radius: 50%;
+    }
+    .writeBox{
+        width: 80vw;
+        margin-left: 10vw;
+        margin-top: 22.5333vw;
+        color: #d3d3d5;
+        font-size: 4vw;
+        .phoneInput{
+            width: 80vw;
+            position: relative;
+            input{
+                width: 80vw;
+                height: 12vw;
+                border: 1px solid rgb(214,214,214);
+                border-radius: 6vw;
+                background: rgba(0,0,0,0);
+                padding-left:4.5333vw;
+                
+            }
+            .deleteIcon{
+                width: 5.3333vw;
+                height: 5.3333vw;
+                position: absolute;
+                right: 5.0667vw;
+                top:3.2vw;
+                border-radius: 50%;
+                background: #e3e3e3;
+                color: #fff;
+                line-height: 5.3333vw;
+                font-size: 4.8vw;
+            }
+        }
+    
+        .phoneCode{
+            width: 80vw;
+            position: relative;
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 5.7333vw;
+            input{
+                width: 45.8667vw;
+                height: 12vw;
+                border: 1px solid rgb(214,214,214);
+                border-radius: 6vw;
+                background: rgba(0,0,0,0);
+                padding-left:4.5333vw;
+                
+            }
+            .codeButton{
+                width: 29.0667vw;
+                height: 12vw;
+                border-radius: 6vw;
+                border: 1px solid #57c0f1;
+                margin-left: 5.0667vw;
+                color: #57C0F1;
+                // font-size: 4vw;
+            }
+        }
+    
+        .password{
+            margin-top: 5.7333vw;
+            width: 80vw;
+            position: relative;
+            input{
+                width: 80vw;
+                height: 12vw;
+                border: 1px solid rgb(214,214,214);
+                border-radius: 6vw;
+                background: rgba(0,0,0,0);
+                padding-left:4.5333vw;
+                
+            }
+            .noSee{
+                width: 5.3333vw;
+                height: 5.3333vw;
+                position: absolute;
+                right: 5.0667vw;
+                top:3.2vw;
+            }
+        }
+    
+        .registerButton{
+            width: 78.5333vw;
+            height: 12vw;
+            background: #00A0E9;
+            border-radius: 6vw;
+            color: #fff;
+            margin-top: 9.3333vw;
+        }
+        .lostPass{
+            width: 78.5333vw;
+            text-align: center;
+            color: #808080;
+            font-size: 3.7333vw;
+            margin-top: 3.4667vw;
+        }
+    }
+}

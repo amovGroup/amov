@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-backdrop forgotModal">
+  <div class="modal-backdrop forgotModal" v-if="show">
     <div class="modal">
       <div class="modal-header">
         <slot name="header">
@@ -23,13 +23,14 @@
 
 <script>
   export default {
+    props:['show'],
     name: 'ForgotModal',
     data () {
       return { }
     },
     methods: {
       close(){
-        this.$emit('close')
+      this.$emit('update:show', false)
       }
     }
   }

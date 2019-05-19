@@ -561,37 +561,14 @@ img.image{
   width: 66.7vw;
   padding-bottom: 150px;
 }
-.sign_in_box{
-  width: 100%;
-  height: calc(100% - 4vw);
-  position: absolute;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-image: url("../../static/images/sign_bg.png");
-}
-.signForm {
-  width: 25vw;
-  height: 28vw;
-  margin-left: 54.7vw;
-  margin-top: 7.4vw;
-  border-radius: 7px;
-  background-color: white;
-  text-align: center;
-  min-width: 300px;
-}
-#sign_up{
-  height: 35vw;
-  margin-top: 3.5vw;
-  min-height: 470px;
-}
+
+
 .logoBox{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.signForm h3{
-  padding-top: 15px;
-}
+
 .inputBox>input {
   width: 255px;
   background-color: #ddd;
@@ -666,9 +643,6 @@ img.image{
   background-image: url("../../assets/icon/weixin.png");
   background-size: 100% 80%;
 }
-.sign_in_box ~ .footer{
-  display: none;
-}
 #sign_up_id .btnBox{
   margin-top: 40px;
 }
@@ -676,7 +650,6 @@ img.image{
   font-size: 12px;
   position: absolute;
   color: red;
-  left: calc(67.2vw - 119px);
 }
 #sendCode{
   padding: 0;
