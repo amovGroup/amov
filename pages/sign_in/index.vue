@@ -1,9 +1,6 @@
 <template>
   <div class="sign_in_box">
     <Background/>
-    <div class="logo">
-      <img src="~/assets/logo/logo_white.png" alt="logo" class="logo">
-    </div>
     <div class="signForm">
       <h3>登录</h3>
       <el-form
@@ -144,8 +141,7 @@ export default {
                     response.data.data.username +
                     '; expires=' +
                     date +
-                    ''
-                  console.log(this.$route.query.from)
+                    '; domain=.amovauto.com; path=/'
                   this.$notify({
                     title: '登录成功',
                     type: 'success'
@@ -207,15 +203,7 @@ export default {
   bottom: 0;
   min-width: 1300px;
   overflow: hidden;
-  .logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    img {
-      height: 50px;
-      width: auto;
-    }
-  }
+ 
   .signForm {
     width: 390px;
     height: 470px;

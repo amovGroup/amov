@@ -122,7 +122,7 @@ export default {
                     response.data.data.username +
                     '; expires=' +
                     date +
-                    ''
+                    '; domain=.amovauto.com; path=/'
 
                   this.$notify({
                     title: '登录成功',
